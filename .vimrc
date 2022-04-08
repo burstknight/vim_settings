@@ -41,6 +41,9 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rbong/vim-flog'
 
+" 這個外掛可以搭配Git即時顯示檔案修改狀態
+Plugin 'airblade/vim-gitgutter'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -73,6 +76,14 @@ let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料�
 " ===============================================================================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'	" 設定用於分析與自動補齊的外掛程式碼的路徑
 let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".ycm_confirm_extra_conf.py"，而且不會詢問是否要切換這個檔案的路徑
+
+" ===============================================================================
+" 設定vim-gitgutter
+" ===============================================================================
+set updatetime = 100	" 設定vim-gitgutter每隔100ms檢查一次檔案的修改狀態
+highlight GitGutterAdd 		ctermfg=blue 	" 設定vim-gitgutter在新增部份使用藍色來表示
+highlight GitGutterChange 	ctermfg=green 	" 設定vim-gitgutter在修改部份使用綠色來表示
+highlight GitGutterDelete	ctermfg=red 	" 設定vim-gitgutter在刪除部份使用紅色來表示
 
 " ===============================================================================
 " 設定快捷鍵

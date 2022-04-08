@@ -9,6 +9,7 @@
 - Add the plugin "YouCompleteMe" to help to edit code files.
 - Add shell file to use this project to setup vim.
 - Add plugins "vim-flog" and "vim-fugitive" to show git log graph in vim.
+- Add plugin "vim-gitgutter" to show the change status for the editing file.
 
 ### Changed
 - Update the template for git-commit command.
