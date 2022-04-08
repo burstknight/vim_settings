@@ -37,6 +37,10 @@ Plugin 'majutsushi/tagbar'
 " 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
 Plugin 'ycm-core/YouCompleteMe'
 
+" 這個外掛用來顯示Git的commit的歷史紀錄
+Plugin 'tpope/vim-fugitive'
+Plugin 'rbong/vim-flog'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -75,4 +79,6 @@ let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".y
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
+nmap <F7> :Flog<CR>
+nmap <C-F7> :Flogsplit<CR>
 nmap <F9> :YcmCompleter GetDoc<CR>

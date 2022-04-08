@@ -8,6 +8,7 @@
 - Add plugin "tagbar" to show the tags in vim for C/C++ code files.
 - Add the plugin "YouCompleteMe" to help to edit code files.
 - Add shell file to use this project to setup vim.
+- Add plugins "vim-flog" and "vim-fugitive" to show git log graph in vim.
 
 ### Changed
 - Update the template for git-commit command.
