@@ -31,6 +31,9 @@ Plugin 'Yggdroot/indentLine'
 " 這個外掛可以在 nerdtree中顯示每個檔案的git狀態
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" 這個外掛可以在vim中顯示所有函數的標籤，在開發C和C++程式時很有幫助
+Plugin 'majutsushi/tagbar'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -62,3 +65,4 @@ let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料�
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :TagbarToggle<CR>
