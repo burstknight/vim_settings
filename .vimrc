@@ -34,6 +34,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " 這個外掛可以在vim中顯示所有函數的標籤，在開發C和C++程式時很有幫助
 Plugin 'majutsushi/tagbar'
 
+" 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
+Plugin 'ycm-core/YouCompleteMe'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -62,7 +65,14 @@ let NERDTreeShowHidden=1	" 在NERDTree顯示隱藏檔
 let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料夾
 
 " ===============================================================================
+" 設定NERDTree
+" ===============================================================================
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'	" 設定用於分析與自動補齊的外掛程式碼的路徑
+let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".ycm_confirm_extra_conf.py"，而且不會詢問是否要切換這個檔案的路徑
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
+nmap <F9> :YcmCompleter GetDoc<CR>
