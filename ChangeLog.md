@@ -15,5 +15,7 @@
 - Update the template for git-commit command.
 
 ### Fixed
+- Fix the bug that the shell file cannot install cmake.
+- Fix the bug that the vimrc cannot set the update time for the plugin "vim-gitgutter".
 
 ### Removed

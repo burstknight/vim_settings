@@ -80,7 +80,7 @@ let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".y
 " ===============================================================================
 " 設定vim-gitgutter
 " ===============================================================================
-set updatetime = 100	" 設定vim-gitgutter每隔100ms檢查一次檔案的修改狀態
+set updatetime=100	" 設定vim-gitgutter每隔100ms檢查一次檔案的修改狀態
 highlight GitGutterAdd 		ctermfg=blue 	" 設定vim-gitgutter在新增部份使用藍色來表示
 highlight GitGutterChange 	ctermfg=green 	" 設定vim-gitgutter在修改部份使用綠色來表示
 highlight GitGutterDelete	ctermfg=red 	" 設定vim-gitgutter在刪除部份使用紅色來表示
