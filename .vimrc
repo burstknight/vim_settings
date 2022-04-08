@@ -17,6 +17,20 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+
+" 這兩個外掛用來修改vim狀態列的樣式
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" 這個外掛是一個檔案總管
+Plugin 'preservim/nerdtree'
+
+" 這個外掛可以顯示對齊參考線
+Plugin 'Yggdroot/indentLine'
+
+" 這個外掛可以在 nerdtree中顯示每個檔案的git狀態
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -37,3 +51,14 @@ set cindent 		" 使用C/C++語言自動縮排方式
 set smartindent		" 智能縮排
 set completeopt=longest,menu	" 智能補全
 set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文字
+
+" ===============================================================================
+" 設定NERDTree
+" ===============================================================================
+let NERDTreeShowHidden=1	" 在NERDTree顯示隱藏檔
+let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料夾
+
+" ===============================================================================
+" 設定快捷鍵
+" ===============================================================================
+nmap <F2> :NERDTreeToggle<CR>
