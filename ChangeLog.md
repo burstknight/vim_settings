@@ -17,5 +17,6 @@
 ### Fixed
 - Fix the bug that the shell file cannot install cmake.
 - Fix the bug that the vimrc cannot set the update time for the plugin "vim-gitgutter".
+- Fix the bug that plugin "YouCompleteMe" cannot work because the contents of the file ".ycm_extra_conf.py" is wrong.
 
 ### Removed
