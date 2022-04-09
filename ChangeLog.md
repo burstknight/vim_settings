@@ -11,6 +11,7 @@
 - Add plugins "vim-flog" and "vim-fugitive" to show git log graph in vim.
 - Add plugin "vim-gitgutter" to show the change status for the editing file.
 - Add flags into ".ycm_extra_conf.py" to include the lib "gtk+-2.0".
+- Add a shortcut to show the changed history of a file.
 
 ### Changed
 - Update the template for git-commit command.

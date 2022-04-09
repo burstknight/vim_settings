@@ -92,4 +92,5 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :Flog<CR>
 nmap <C-F7> :Flogsplit<CR>
+nmap <F8> :Glog -- % <CR>
 nmap <F9> :YcmCompleter GetDoc<CR>
