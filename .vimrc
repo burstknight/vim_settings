@@ -76,6 +76,13 @@ let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料�
 " ===============================================================================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'	" 設定用於分析與自動補齊的外掛程式碼的路徑
 let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".ycm_confirm_extra_conf.py"，而且不會詢問是否要切換這個檔案的路徑
+let g:ycm_min_num_identifier_candidate_chars = 2 " 設定YouCompleteMe在編輯程式碼時，只需要輸入最少兩個字元就會提供自動補全
+
+" 設定YouCompleteMe只要輸入文字就會觸發自動補全的功能
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
 
 " ===============================================================================
 " 設定vim-gitgutter
