@@ -17,6 +17,7 @@
 
 ### Changed
 - Update the template for git-commit command.
+- Update the file `.ycm_extra_conf.py` to load a file to set compile flags.
 
 ### Fixed
 - Fix the bug that the shell file cannot install cmake.

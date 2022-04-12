@@ -86,24 +86,35 @@ get_python_inc(),
 'cpp/ycm/tests/gmock/googletest/include',
 '-isystem',
 'cpp/ycm/benchmarks/benchmark/include',
-'-std=c++17',
-'-I/usr/include/gtk-2.0', 
-'-I/usr/lib/x86_64-linux-gnu/gtk-2.0/include',
-'-I/usr/include/pango-1.0', 
-'-I/usr/include/atk-1.0',
-'-I/usr/include/gdk-pixbuf-2.0',
-'-I/usr/include/libmount', 
-'-I/usr/include/blkid',
-'-I/usr/include/pango-1.0',
-'-I/usr/include/fribidi',
-'-I/usr/include/cairo', '-I/usr/include/pixman-1',
-'-I/usr/include/harfbuzz',
-'-I/usr/include/glib-2.0',
-'-I/usr/lib/x86_64-linux-gnu/glib-2.0/include',
-'-I/usr/include/uuid',
-'-I/usr/include/freetype2',
-'-I/usr/include/libpng16'
+'-std=c++17'
 ]
+
+def loadFlags(strFilePath:str):
+    """
+    Description:
+    =======================================================
+    Load the compilation flags to help complete.
+
+    Args:
+    =====================================================
+    - strFilePath:  type: str, the file path
+
+    Return:
+    =====================================================
+    - rtype: void
+    """
+    with open(strFilePath, "r") as oReader:
+        for strLine in oReader.readlines():
+            if(strLine.strip() in flags):
+                continue
+            # End of if-condition
+
+            flags.append(strLine.strip())
+        # End of for-loop
+    # End of with-block
+# End of loadFlags
+
+loadFlags(p.expanduser("~") + "/.vim/bundle/YouCompleteMe/compile_includes.data")
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
