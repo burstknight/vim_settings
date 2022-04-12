@@ -44,6 +44,9 @@ Plugin 'rbong/vim-flog'
 " 這個外掛可以搭配Git即時顯示檔案修改狀態
 Plugin 'airblade/vim-gitgutter'
 
+" 這個外掛提供了幾個樣板，只要使用這個外掛，就可以把這些樣板載進來
+Plugin 'tibabit/vim-templates'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -91,6 +94,11 @@ set updatetime=100	" 設定vim-gitgutter每隔100ms檢查一次檔案的修改�
 highlight GitGutterAdd 		ctermfg=blue 	" 設定vim-gitgutter在新增部份使用藍色來表示
 highlight GitGutterChange 	ctermfg=green 	" 設定vim-gitgutter在修改部份使用綠色來表示
 highlight GitGutterDelete	ctermfg=red 	" 設定vim-gitgutter在刪除部份使用紅色來表示
+
+" ===============================================================================
+" 設定vim-templates
+" ===============================================================================
+let g:tmpl_search_paths = ['~/templates']
 
 " ===============================================================================
 " 設定快捷鍵

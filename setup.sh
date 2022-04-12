@@ -5,6 +5,7 @@ sudo apt-get install exuberant-ctags csope
 sudo apt install build-essential cmake python3-dev
 
 cp .vimrc ~/
+cp -r ./templates/ ~/
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall

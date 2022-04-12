@@ -1,0 +1,65 @@
+######################################################################
+# @author      : {{NAME}} ({{EMAIL}})
+# @file        : {{FILE}}
+# @created     : {{TIMESTAMP}}
+######################################################################
+
+# This flag is to control to use release or debug mode to compile code files.
+debug ?= 0
+
+# These directories is set to compile this project.
+Includes_Dir = ./includes
+Sourc_Dir = ./src
+Bin_Dir = ./bin
+
+# This directory is set to install this project.
+Install_Dir := /usr/local/bin
+
+# Set compiler and flags.
+CC = gcc
+CFLAGS = -I $(Includes_Dir)
+LIBS = 
+
+# List all source code in the src directory
+Sourcs := $(wildcard $(Sourc_Dir)/*.c)
+
+# Create the list to generate object files
+Objects := $(patsubst $(Sourc_Dir)/%.c, $(Bin_Dir)/%.o, $(Sourcs))
+
+# Set the target file name
+Target = testHeapSort 
+
+# Switch compile mode
+ifeq ($(debug), 1)
+	CFLAGS += -g
+else
+	CFLAGS += -O3
+endif
+
+
+.PHONY: clean all install uninstall
+
+# Compile the target file with the object files.
+all: $(Bin_Dir)/$(Target)
+
+$(Bin_Dir)/$(Target): $(Objects)
+	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
+
+# Compile the source code to the object files.
+$(Bin_Dir)/%.o: $(Sourc_Dir)/%.c
+	mkdir -p $(Bin_Dir)
+	$(CC) -c $< $(CFLAGS) -o $@ 
+
+# Install this project.
+install:
+	cp $(Bin_Dir)/$(Target) $(Install_Dir)
+	chmod +x $(Install_Dir)/$(Target)
+
+# Uninstall this project.
+uninstall:
+	rm -f $(Install_Dir)/$(Target)
+
+# Clean all compiled files.
+clean:
+	rm -f $(Bin_Dir)/*
+
