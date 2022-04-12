@@ -15,19 +15,22 @@ Bin_Dir = ./bin
 # This directory is set to install this project.
 Install_Dir := /usr/local/bin
 
+# Set the code file extension.
+File_Extension := c
+
 # Set compiler and flags.
 CC = gcc
 CFLAGS = -I $(Includes_Dir)
 LIBS = 
 
 # List all source code in the src directory
-Sourcs := $(wildcard $(Sourc_Dir)/*.c)
+Sourcs := $(wildcard $(Sourc_Dir)/*.$(File_Extension))
 
 # Create the list to generate object files
-Objects := $(patsubst $(Sourc_Dir)/%.c, $(Bin_Dir)/%.o, $(Sourcs))
+Objects := $(patsubst $(Sourc_Dir)/%.$(File_Extension), $(Bin_Dir)/%.o, $(Sourcs))
 
 # Set the target file name
-Target = testHeapSort 
+Target = program
 
 # Switch compile mode
 ifeq ($(debug), 1)
@@ -46,7 +49,7 @@ $(Bin_Dir)/$(Target): $(Objects)
 	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
 # Compile the source code to the object files.
-$(Bin_Dir)/%.o: $(Sourc_Dir)/%.c
+$(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
 	mkdir -p $(Bin_Dir)
 	$(CC) -c $< $(CFLAGS) -o $@ 
 
