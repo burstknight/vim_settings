@@ -19,6 +19,7 @@
 - Update the template for git-commit command.
 - Update the file `.ycm_extra_conf.py` to load a file to set compile flags.
 - Update the makefile template to support .cpp and .c files.
+- Update the makefile template to reduce command that is to create the directory "bin".
 
 ### Fixed
 - Fix the bug that the shell file cannot install cmake.
