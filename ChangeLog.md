@@ -20,6 +20,7 @@
 - Update the file `.ycm_extra_conf.py` to load a file to set compile flags.
 - Update the makefile template to support .cpp and .c files.
 - Update the makefile template to reduce command that is to create the directory "bin".
+- Modify the insert shortcut "{}" to add a new line.
 
 ### Fixed
 - Fix the bug that the shell file cannot install cmake.

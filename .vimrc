@@ -7,7 +7,7 @@ inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
 inoremap << <><ESC>i
-inoremap {<CR> {<CR>}<ESC>ko<TAB>
+inoremap {<CR> {<CR>}<CR><ESC>kko<TAB>
 inoremap {{ {}<ESC>i
 
 " ===============================================================================
