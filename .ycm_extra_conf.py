@@ -103,6 +103,10 @@ def loadFlags(strFilePath:str):
     =====================================================
     - rtype: void
     """
+    if(False == p.isfile(strFilePath)):
+      return
+    # End of if-condition
+
     with open(strFilePath, "r") as oReader:
         for strLine in oReader.readlines():
             if(strLine.strip() in flags):
