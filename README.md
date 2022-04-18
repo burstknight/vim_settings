@@ -23,13 +23,12 @@ You can follow these steps to use this project to setup vim configuration.
 ### Shortcuts
 My shortcuts are defined:
 
-Key			| Function
-------------|------------------------------------------------------------------
-<F2>		| Open or close file explorer
-<F3>		| Open or close tagbar
-Ctrl +<F7>	| Open a new tab to show git commit history
-<F7>		| Split a buffer to show git commit history
-<F9>		| Get the document of a variable, function, method, or class etc.
+Key				| Function
+----------------|------------------------------------------------------------------
+`<F2>`			| Open or close file explorer
+`<F3>`			| Open or close tagbar
+`Ctrl` + `<F7>`	| Open a new tab to show git commit history
+`<F7>`			| Split a buffer to show git commit history
 
 ### Commands:
 This table is shown useful commands:
