@@ -1,7 +1,7 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install git
-sudo apt-get install exuberant-ctags csope
+sudo apt-get install exuberant-ctags cscope
 sudo apt install build-essential cmake python3-dev
 
 cp .vimrc ~/

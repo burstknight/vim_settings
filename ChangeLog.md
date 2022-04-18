@@ -27,5 +27,6 @@
 - Fix the bug that the vimrc cannot set the update time for the plugin "vim-gitgutter".
 - Fix the bug that plugin "YouCompleteMe" cannot work because the contents of the file ".ycm_extra_conf.py" is wrong.
 - Fix the bug that ".ycm_extra_conf.py" would crash because the code file could not find the file "compile_includes.data".
+- Fix the bug that the shell file `setup.sh` could not install the package `cscope` because the install command was wrong.
 
 ### Removed
