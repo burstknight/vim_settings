@@ -12,3 +12,6 @@ vim +PluginInstall +qall
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 
 cp .ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe/
+
+cd ~/.vim/bundle/markdown-preview.nvim/app
+sh ./install.sh

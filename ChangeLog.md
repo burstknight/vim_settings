@@ -14,6 +14,7 @@
 - Add a shortcut to show the changed history of a file.
 - Set the config of the plugin "YouCompleteMe" to easily write code.
 - Add the plugin "vim-templates" to load template files to help to write code files.
+- Add the plugin "markdown-preview.nvim" to preview markdown file via web browser.
 
 ### Changed
 - Update the template for git-commit command.

@@ -35,4 +35,5 @@ This table is shown useful commands:
 
 Commands			| Function
 --------------------|----------------------------------------------------------------
-:TemplateAutoInit	| Load a template file to write the current file.
+`:TemplateAutoInit`	| Load a template file to write the current file.
+`:MarkdownPreview`	| Open a web browser to preview markdon file.

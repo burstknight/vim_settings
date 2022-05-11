@@ -47,6 +47,8 @@ Plugin 'airblade/vim-gitgutter'
 " 這個外掛提供了幾個樣板，只要使用這個外掛，就可以把這些樣板載進來
 Plugin 'tibabit/vim-templates'
 
+Plugin 'iamcco/markdown-preview.nvim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -101,11 +103,18 @@ highlight GitGutterDelete	ctermfg=red 	" 設定vim-gitgutter在刪除部份使�
 let g:tmpl_search_paths = ['~/templates']
 
 " ===============================================================================
+" 設定vim-templates
+" ===============================================================================
+let g:mkdp_port = '7777' 			" 設定Port
+let g:mkdp_auto_start = 0			
+let g:mkdp_refresh_slow = 1
+let g:mkdp_open_ip = '127.0.0.1'
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :Flog<CR>
 nmap <C-F7> :Flogsplit<CR>
-nmap <F8> :Glog -- % <CR>
 nmap <F9> :YcmCompleter GetDoc<CR>
