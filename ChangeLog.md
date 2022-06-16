@@ -15,6 +15,7 @@
 - Set the config of the plugin "YouCompleteMe" to easily write code.
 - Add the plugin "vim-templates" to load template files to help to write code files.
 - Add the plugin "markdown-preview.nvim" to preview markdown file via web browser.
+- Add the file `git_commit_template` for git commit template.
 
 ### Changed
 - Update the template for git-commit command.
