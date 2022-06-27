@@ -18,6 +18,7 @@
 - Add the file `git_commit_template` for git commit template.
 - Update `setup.sh` to check if the vim plugin manager `Vundle` exists, and then determine to download it or not.
 - Update `setup.sh` to set git commit template.
+- Add `.gitignore` template file.
 
 ### Changed
 - Update the template for git-commit command.
