@@ -16,6 +16,8 @@
 - Add the plugin "vim-templates" to load template files to help to write code files.
 - Add the plugin "markdown-preview.nvim" to preview markdown file via web browser.
 - Add the file `git_commit_template` for git commit template.
+- Update `setup.sh` to check if the vim plugin manager `Vundle` exists, and then determine to download it or not.
+- 
 
 ### Changed
 - Update the template for git-commit command.

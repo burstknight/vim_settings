@@ -6,7 +6,11 @@ sudo apt install build-essential cmake python3-dev
 
 cp .vimrc ~/
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+    echo "\e[32mThe plugin manager Vundle exists, so we don't download it.\e[0m"
+else
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 vim +PluginInstall +qall
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 
