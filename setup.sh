@@ -17,7 +17,7 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 cp .ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe/
 
 cp -r ./templates/ ~/.vim
-git config --global commit.template ~/.vim/templates
+git config --global commit.template ~/.vim/templates/git_commit_template
 
 cd ~/.vim/bundle/markdown-preview.nvim/app
 sh ./install.sh
