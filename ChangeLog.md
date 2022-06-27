@@ -2,6 +2,16 @@
 
 ## [Unrelease]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+---------------------------
+## [1.0.0] - 2022/06/27
+### Added
 - Add a template file for git-commit command.
 - Add vimrc to load the plugin "vundle" and set base configuration.
 - Add plugin "NERDTree" to show file expolor in vim.
