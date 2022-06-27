@@ -32,3 +32,4 @@
 - Fix the bug that the shell file `setup.sh` could not install the package `cscope` because the install command was wrong.
 
 ### Removed
+- Remove useless file `.git_commit_template` because the template file exists in the directory `templates`.
