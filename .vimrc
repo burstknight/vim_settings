@@ -49,6 +49,9 @@ Plugin 'tibabit/vim-templates'
 
 Plugin 'iamcco/markdown-preview.nvim'
 
+" 這個外掛提供非同步模式下使用外部指令
+Plugin 'skywind3000/asyncrun.vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -111,6 +114,12 @@ let g:mkdp_refresh_slow = 1
 let g:mkdp_open_ip = '127.0.0.1'
 
 " ===============================================================================
+" 設定asyncrun
+" ===============================================================================
+let g:asyncrun_open = 10	" 自動開啟 qickfix window，高度設定為10
+let g:async_bell = 1		" 當外部指令執行完畢時會發出聲音
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
@@ -118,3 +127,6 @@ nmap <F3> :TagbarToggle<CR>
 nmap <F7> :Flog<CR>
 nmap <C-F7> :Flogsplit<CR>
 nmap <F9> :YcmCompleter GetDoc<CR>
+nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
+nmap <F5> :AsyncRun make clean; make debug=1<CR>
+nmap <C-F5> :AsyncRun make clean;make <CR>

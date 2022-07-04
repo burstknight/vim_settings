@@ -29,6 +29,9 @@ Key				| Function
 `<F3>`			| Open or close tagbar
 `Ctrl` + `<F7>`	| Open a new tab to show git commit history
 `<F7>`			| Split a buffer to show git commit history
+`<F5>`			| Use the command `make` to build C/C++ code for debug
+`Ctrl` + `<F5>`	| Use the command `make` to build C/C++ code for release
+`<F10>`			| Open or close quickfix window for the plugin `asyncrun`
 
 ### Commands:
 This table is shown useful commands:
