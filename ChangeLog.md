@@ -10,6 +10,7 @@
 
 ### Fixed
 - Update the makefile template for the build error that the directory `bin` would not create.
+- Update `setup.sh` to fix the bug that the plugin `coc.nvim` need more depenent packages.
 
 ### Removed
 

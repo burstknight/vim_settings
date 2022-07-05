@@ -7,6 +7,7 @@ sudo apt-get install clangd-10
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt -y install nodejs
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
 
 cp .vimrc ~/
 
@@ -19,7 +20,9 @@ vim +PluginInstall +qall
 
 cd ~/.vim/bundle/coc.nvim
 sudo npm install -g yarn
+git checkout release
 yarn install
+yarn build
 cd -
 
 cp -r ./templates/ ~/.vim
