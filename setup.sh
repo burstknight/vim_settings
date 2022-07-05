@@ -3,6 +3,10 @@ sudo apt-get upgrade
 sudo apt-get install git
 sudo apt-get install exuberant-ctags cscope
 sudo apt-get install build-essential cmake python3-dev
+sudo apt-get install clangd-10
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y install nodejs
 
 cp .vimrc ~/
 
@@ -12,9 +16,11 @@ else
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 vim +PluginInstall +qall
-python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 
-cp .ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe/
+cd ~/.vim/bundle/coc.nvim
+sudo npm install -g yarn
+yarn install
+cd -
 
 cp -r ./templates/ ~/.vim
 git config --global commit.template ~/.vim/templates/git_commit_template

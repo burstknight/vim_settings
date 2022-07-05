@@ -4,6 +4,7 @@
 ### Added
 - Add the plugin `asyncrun` to use the command `make` to build C/C++ code in async mode.
 - Add the template for the command `pkg-config`.
+- Replace the plugin `YouCompleteMe` with `coc.nvim` to complete code.
 
 ### Changed
 
