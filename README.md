@@ -1,22 +1,17 @@
 # vim_settings
 This project can setup vim.
 
+## Requirements
+The plugin `coc.nvim` need the requirements:
+- `vim`: `>= 8.0.1453` (run `:version` in vim or `vim --version` to check the version)
+- `node`: `>= 12.12`
+
+
 ## Setup
 You can follow these steps to use this project to setup vim configuration.
 1. Run the shell script `setup.sh` to setup the configuration for vim.
 	```sh
 	sh setup.sh
-	```
-
-2. Generate the file `compile_includes.data` for the vim plugin `YouCompleteMe`.
-	- Use the command `pkg-config --cflags <Lib_Name> | sed 's/ /\n/g'`, where `<Lib_Name>` is that you want to use library. For example, if I want to use the `gtk+-3.0` and `opencv` to develop a program, I can use these commands:
-	```sh
-	pkg-config --cflags gtk+-3.0 | sed 's/ /\n/g' >> compile_includes.data
-	pkg-config --cflags opencv | sed 's/ /\n/g' >> compile_includes.data
-	```
-	- If you finish generate the file `compile_includes.data` for your requirement, you can move this file into `~/.vim/bundle/YouCompleteMe/`.
-	```sh
-	mv compile_includes.data ~/.vim/bundle/YouCompleteMe/
 	```
 
 ## Usage
@@ -31,6 +26,7 @@ Key				| Function
 `<F7>`			| Split a buffer to show git commit history
 `<F5>`			| Use the command `make` to build C/C++ code for debug
 `Ctrl` + `<F5>`	| Use the command `make` to build C/C++ code for release
+`<F9>`			| Show the document of the functions or classes
 `<F10>`			| Open or close quickfix window for the plugin `asyncrun`
 
 ### Commands:
