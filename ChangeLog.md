@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- Update the makefile template for the build error that the directory `bin` would not create.
 
 ### Removed
 
