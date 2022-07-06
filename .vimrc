@@ -108,6 +108,9 @@ func! ShowDocumentation()
 	endif
 endfunc
 
+" 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " ===============================================================================
 " 設定vim-gitgutter
 " ===============================================================================
