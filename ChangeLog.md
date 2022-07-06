@@ -11,6 +11,7 @@
 ### Fixed
 - Update the makefile template for the build error that the directory `bin` would not create.
 - Update `setup.sh` to fix the bug that the plugin `coc.nvim` need more depenent packages.
+- Update `setup.sh` to fix the bug that the plugin `markdown-preview.nvim` could not work because some dependent packages are conflict between this plugin and `coc.vim`.
 
 ### Removed
 
