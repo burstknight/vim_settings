@@ -88,8 +88,10 @@ let g:coc_global_extensions = [
 			\'coc-cmake', 
 			\'coc-jedi', 
 			\'coc-sh', 
-			\'coc-json']
+			\'coc-json',
+			\'coc-markdownlint']
 
+" 讓coc.nvim在顯示函式或類別的說明文件時，若內容較多，可以使用 Ctrl + f 和 Ctrl + b 來捲動
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>coc#float#scroll(1)\<cr>" : "\<Right>"
