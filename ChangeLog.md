@@ -7,6 +7,7 @@
 - Replace the plugin `YouCompleteMe` with `coc.nvim` to complete code.
 - Add language server into `coc.nvim` to support markdown file.
 - Set the new function that the plugin `coc.nvim` can use `Enter` key to complete code.
+- Set the new function that the plugin `coc.nvim` can use `<TAB>` key to navigate to the next complete item.
 
 ### Changed
 
