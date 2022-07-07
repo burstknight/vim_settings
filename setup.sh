@@ -5,8 +5,8 @@ sudo apt-get install exuberant-ctags cscope
 sudo apt-get install build-essential cmake python3-dev
 sudo apt-get install clangd-10
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt -y install nodejs
+sudo curl -sL install-node.now.sh | sudo bash
+sudo apt -y install nodejs npm
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
 
 cp .vimrc ~/

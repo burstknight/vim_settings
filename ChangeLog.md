@@ -10,6 +10,7 @@
 - Set the new function that the plugin `coc.nvim` can use `<TAB>` key to navigate to the next complete item.
 
 ### Changed
+- Use the newest version nodejs for the plugin `coc.nvim`.
 
 ### Fixed
 - Update the makefile template for the build error that the directory `bin` would not create.
