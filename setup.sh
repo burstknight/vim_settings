@@ -1,3 +1,4 @@
+sudo add-apt-repository ppa:jonathonf/vim
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install git
@@ -8,6 +9,7 @@ sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 sudo curl -sL install-node.now.sh | sudo bash
 sudo apt -y install nodejs npm
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
+sudo apt-get install vim
 
 cp .vimrc ~/
 
