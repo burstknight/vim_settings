@@ -86,7 +86,7 @@ let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料�
 let g:coc_global_extensions = [
 			\'coc-clangd', 
 			\'coc-cmake', 
-			\'coc-jedi', 
+			\'coc-pyright', 
 			\'coc-sh', 
 			\'coc-json',
 			\'coc-markdownlint']
