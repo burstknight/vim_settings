@@ -1,14 +1,13 @@
-sudo add-apt-repository ppa:jonathonf/vim
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install git
-sudo apt-get install exuberant-ctags cscope
-sudo apt-get install build-essential cmake python3-dev
-sudo apt-get install clangd
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+sudo apt-get -y install git
+sudo apt-get -y install exuberant-ctags cscope
+sudo apt-get -y install build-essential cmake python3-dev
+sudo apt-get -y install clangd
+sudo apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 sudo curl -sL install-node.now.sh | sudo bash
-sudo apt -y install nodejs npm
-sudo apt-get install vim
+sudo apt-get -y install nodejs npm
+sudo npm install -g yarn
 
 cp .vimrc ~/
 
@@ -20,10 +19,8 @@ fi
 vim +PluginInstall +qall
 
 cd ~/.vim/bundle/coc.nvim
-sudo npm install -g yarn
 git checkout release
 yarn install
-yarn build
 cd -
 
 cp -r ./templates/ ~/.vim
