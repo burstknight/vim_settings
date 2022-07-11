@@ -3,9 +3,16 @@ This project can setup vim.
 
 ## Requirements
 The plugin `coc.nvim` need the requirements:
-- `vim`: `>= 8.0.1453` (run `:version` in vim or `vim --version` to check the version)
+- `vim`: `>= 8.2` (run `:version` in vim or `vim --version` to check the version)
 - `node`: `>= 12.12`
 
+If the version of your vim is older, you can use bellow commands to upgrade vim:
+```bash
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim
+```
 
 ## Setup
 You can follow these steps to use this project to setup vim configuration.
