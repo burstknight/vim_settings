@@ -20,6 +20,7 @@
 - Update `setup.sh` to fix the bug that the plugin `markdown-preview.nvim` could not work because some dependent packages are conflict between this plugin and `coc.vim`.
 
 ### Removed
+- Remove the file `.ycm_extra_conf.py` because using the plugin `coc.nvim` to do completion.
 
 ---------------------------
 ## [1.0.0] - 2022/06/27
