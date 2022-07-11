@@ -12,6 +12,7 @@
 ### Changed
 - Use the newest version nodejs for the plugin `coc.nvim`.
 - Update `setup.sh` to install vim version 8.2 for the plugin `coc.nvim`.
+- Update `setup.sh` to install clangd, and the version will be selected by the command `apt-get`.
 
 ### Fixed
 - Update the makefile template for the build error that the directory `bin` would not create.

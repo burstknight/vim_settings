@@ -4,11 +4,10 @@ sudo apt-get upgrade
 sudo apt-get install git
 sudo apt-get install exuberant-ctags cscope
 sudo apt-get install build-essential cmake python3-dev
-sudo apt-get install clangd-10
+sudo apt-get install clangd
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 sudo curl -sL install-node.now.sh | sudo bash
 sudo apt -y install nodejs npm
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
 sudo apt-get install vim
 
 cp .vimrc ~/
