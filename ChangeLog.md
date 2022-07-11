@@ -4,11 +4,20 @@
 ### Added
 - Add the plugin `asyncrun` to use the command `make` to build C/C++ code in async mode.
 - Add the template for the command `pkg-config`.
+- Replace the plugin `YouCompleteMe` with `coc.nvim` to complete code.
+- Add language server into `coc.nvim` to support markdown file.
+- Set the new function that the plugin `coc.nvim` can use `Enter` key to complete code.
+- Set the new function that the plugin `coc.nvim` can use `<TAB>` key to navigate to the next complete item.
 
 ### Changed
+- Use the newest version nodejs for the plugin `coc.nvim`.
+- Update `setup.sh` to install vim version 8.2 for the plugin `coc.nvim`.
+- Update `setup.sh` to install clangd, and the version will be selected by the command `apt-get`.
 
 ### Fixed
 - Update the makefile template for the build error that the directory `bin` would not create.
+- Update `setup.sh` to fix the bug that the plugin `coc.nvim` need more depenent packages.
+- Update `setup.sh` to fix the bug that the plugin `markdown-preview.nvim` could not work because some dependent packages are conflict between this plugin and `coc.vim`.
 
 ### Removed
 
