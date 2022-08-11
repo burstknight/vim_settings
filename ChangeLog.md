@@ -10,6 +10,33 @@
 ### Removed
 
 ---------------------------
+## [1.1.0] - 2022/08/11
+### Added
+- Add the plugin `asyncrun` to use the command `make` to build C/C++ code in async mode.
+- Add the template for the command `pkg-config`.
+- Replace the plugin `YouCompleteMe` with `coc.nvim` to complete code.
+- Add language server into `coc.nvim` to support markdown file.
+- Set the new function that the plugin `coc.nvim` can use `Enter` key to complete code.
+- Set the new function that the plugin `coc.nvim` can use `<TAB>` key to navigate to the next complete item.
+- Add the plugin `vim-rainbow` to handle multiple colors for braces.
+- Add the plugin `auto-pairs` to handle braces completion.
+- Add the plugin `vim-code-dark` as vim color themes.
+
+### Changed
+- Use the newest version nodejs for the plugin `coc.nvim`.
+- Update `setup.sh` to install clangd, and the version will be selected by the command `apt-get`.
+- Update `setup.sh` to adjust commands to install packages, and the command that can upgrade vim is removed.
+- Replace `coc-jedi` with `coc-pyright` as python3 language server for the plugin `coc.nvim`.
+
+### Fixed
+- Update the makefile template for the build error that the directory `bin` would not create.
+- Update `setup.sh` to fix the bug that the plugin `coc.nvim` need more depenent packages.
+- Update `setup.sh` to fix the bug that the plugin `markdown-preview.nvim` could not work because some dependent packages are conflict between this plugin and `coc.vim`.
+
+### Removed
+- Remove the file `.ycm_extra_conf.py` because using the plugin `coc.nvim` to do completion.
+
+---------------------------
 ## [1.0.0] - 2022/06/27
 ### Added
 - Add a template file for git-commit command.

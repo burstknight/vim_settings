@@ -1,0 +1,10 @@
+lib_name=myLib
+prefix=/usr/local
+include_dir=${prefix}/include/${lib_name}
+lib_dir=${prefix}/lib/${lib_name}
+
+Name: ${lib_name}
+Description: Cpp library
+Version: 1.0.0
+Libs: -L${lib_dir} -l${lib_name}
+Cflags: -I${include_dir}
