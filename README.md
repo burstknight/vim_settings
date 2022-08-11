@@ -36,6 +36,27 @@ Key				| Function
 `<F9>`			| Show the document of the functions or classes
 `<F10>`			| Open or close quickfix window for the plugin `asyncrun`
 
+### Coc.nvim Setting
+If you hope the plugin `coc.nvim` to support your C/C++ library or other libraries, you can use the command `:CocConfig` in vim to edit the configuration file. And then the plugin `coc.nvim` will use the configuration file to show hint for any functions, variables etc.
+
+For example, a C library `myLib` is installed into the directory `/opt`. The content of the library `myLib` is:
+```
+myLib/
+|----- includes/
+|----- lib/
+```
+
+where the directory `includes` has all head files; the directory `lib` has all library files. You can edit the configuration file to make the plugin `coc.nvim` finding the include path for the library `myLib`.
+
+Here is a example for the library `myLib`:
+```json
+{
+	clangd.fallbackFlags: [
+		"-I/opt/myLib/include"
+	]
+}
+```
+
 ### Commands:
 This table is shown useful commands:
 
@@ -43,3 +64,4 @@ Commands			| Function
 --------------------|----------------------------------------------------------------
 `:TemplateAutoInit`	| Load a template file to write the current file.
 `:MarkdownPreview`	| Open a web browser to preview markdon file.
+`:CocConfig` 		| Open the configuration file to edit for the plugin `coc.nvim`.
