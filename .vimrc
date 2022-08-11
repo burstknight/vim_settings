@@ -1,16 +1,4 @@
 " ===============================================================================
-" vim 基本符號的補齊以 "()" 為例，在insert-mode下，先輸入 "(" ，vim就會先輸入"()"
-" ，然後自動使用ESC鍵離開insert-mode，然後又進入insert-mode，就會發現游標在()中間
-" ===============================================================================
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap [ []<ESC>i
-inoremap << <><ESC>i
-inoremap {<CR> {<CR>}<CR><ESC>kko<TAB>
-inoremap {{ {}<ESC>i
-
-" ===============================================================================
 " 載入vim外掛
 " ===============================================================================
 filetype off
@@ -52,6 +40,15 @@ Plugin 'iamcco/markdown-preview.nvim'
 " 這個外掛提供非同步模式下使用外部指令
 Plugin 'skywind3000/asyncrun.vim'
 
+" 針對使用多個括號時，會使用不同的顏色來呈現多層次
+Plugin 'frazrepo/vim-rainbow'
+
+" 可用來處理括號等符號的自動補齊
+Plugin 'jiangmiao/auto-pairs'
+
+" vim 顏色主題
+Plugin 'tomasiser/vim-code-dark'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -59,7 +56,6 @@ filetype plugin indent on
 " vim 基本設定
 " ===============================================================================
 set nu 				" 顯示行數
-set cursorline 		" 游標所在的那一行會有底線
 set tabstop=4		" 設定tab鍵產生4格空白字元的寬度
 set shiftwidth=4	" 設定自動縮排的對齊寬度為4格
 set mouse=a			" 啟用用滑鼠選取文字
@@ -72,6 +68,7 @@ set cindent 		" 使用C/C++語言自動縮排方式
 set smartindent		" 智能縮排
 set completeopt=longest,menu	" 智能補全
 set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文字
+colorscheme codedark
 
 " ===============================================================================
 " 設定NERDTree
@@ -148,6 +145,12 @@ let g:mkdp_open_ip = '127.0.0.1'
 " ===============================================================================
 let g:asyncrun_open = 10	" 自動開啟 qickfix window，高度設定為10
 let g:async_bell = 1		" 當外部指令執行完畢時會發出聲音
+
+" ===============================================================================
+" 設定vim-rainbow
+" ===============================================================================
+let g:rainbow_active = 1
+let g:rainbow_ctermfgs = [226, 10, 172 , 50, 129]
 
 " ===============================================================================
 " 設定快捷鍵

@@ -8,6 +8,9 @@
 - Add language server into `coc.nvim` to support markdown file.
 - Set the new function that the plugin `coc.nvim` can use `Enter` key to complete code.
 - Set the new function that the plugin `coc.nvim` can use `<TAB>` key to navigate to the next complete item.
+- Add the plugin `vim-rainbow` to handle multiple colors for braces.
+- Add the plugin `auto-pairs` to handle braces completion.
+- Add the plugin `vim-code-dark` as vim color themes.
 
 ### Changed
 - Use the newest version nodejs for the plugin `coc.nvim`.
