@@ -46,11 +46,11 @@ endif
 all: $(Bin_Dir)/$(Target)
 
 $(Bin_Dir)/$(Target): $(Objects)
-	mkdir -p $(Bin_Dir)
 	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
 # Compile the source code to the object files.
 $(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
+	mkdir -p $(Bin_Dir)
 	$(CC) -c $< $(CFLAGS) -o $@ 
 
 # Install this project.

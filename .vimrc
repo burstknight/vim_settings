@@ -1,16 +1,4 @@
 " ===============================================================================
-" vim 基本符號的補齊以 "()" 為例，在insert-mode下，先輸入 "(" ，vim就會先輸入"()"
-" ，然後自動使用ESC鍵離開insert-mode，然後又進入insert-mode，就會發現游標在()中間
-" ===============================================================================
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap [ []<ESC>i
-inoremap << <><ESC>i
-inoremap {<CR> {<CR>}<CR><ESC>kko<TAB>
-inoremap {{ {}<ESC>i
-
-" ===============================================================================
 " 載入vim外掛
 " ===============================================================================
 filetype off
@@ -35,7 +23,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 
 " 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'neoclide/coc.nvim'
 
 " 這個外掛用來顯示Git的commit的歷史紀錄
 Plugin 'tpope/vim-fugitive'
@@ -49,6 +37,18 @@ Plugin 'tibabit/vim-templates'
 
 Plugin 'iamcco/markdown-preview.nvim'
 
+" 這個外掛提供非同步模式下使用外部指令
+Plugin 'skywind3000/asyncrun.vim'
+
+" 針對使用多個括號時，會使用不同的顏色來呈現多層次
+Plugin 'frazrepo/vim-rainbow'
+
+" 可用來處理括號等符號的自動補齊
+Plugin 'jiangmiao/auto-pairs'
+
+" vim 顏色主題
+Plugin 'tomasiser/vim-code-dark'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -56,7 +56,6 @@ filetype plugin indent on
 " vim 基本設定
 " ===============================================================================
 set nu 				" 顯示行數
-set cursorline 		" 游標所在的那一行會有底線
 set tabstop=4		" 設定tab鍵產生4格空白字元的寬度
 set shiftwidth=4	" 設定自動縮排的對齊寬度為4格
 set mouse=a			" 啟用用滑鼠選取文字
@@ -69,6 +68,7 @@ set cindent 		" 使用C/C++語言自動縮排方式
 set smartindent		" 智能縮排
 set completeopt=longest,menu	" 智能補全
 set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文字
+colorscheme codedark
 
 " ===============================================================================
 " 設定NERDTree
@@ -77,17 +77,47 @@ let NERDTreeShowHidden=1	" 在NERDTree顯示隱藏檔
 let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料夾
 
 " ===============================================================================
-" 設定NERDTree
+" 設定coc.nvim
 " ===============================================================================
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'	" 設定用於分析與自動補齊的外掛程式碼的路徑
-let g:ycm_confirm_extra_conf = 0	" 設定每次開啟vim時，會自動載入".ycm_confirm_extra_conf.py"，而且不會詢問是否要切換這個檔案的路徑
-let g:ycm_min_num_identifier_candidate_chars = 2 " 設定YouCompleteMe在編輯程式碼時，只需要輸入最少兩個字元就會提供自動補全
 
-" 設定YouCompleteMe只要輸入文字就會觸發自動補全的功能
-let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,lua,javascript': ['re!\w{2}'],
-			\ }
+let g:coc_global_extensions = [
+			\'coc-clangd', 
+			\'coc-cmake', 
+			\'coc-pyright', 
+			\'coc-sh', 
+			\'coc-json',
+			\'coc-markdownlint']
+
+" 讓coc.nvim在顯示函式或類別的說明文件時，若內容較多，可以使用 Ctrl + f 和 Ctrl + b 來捲動
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+nnoremap <silent> <F9> :call ShowDocumentation()<CR>
+func! ShowDocumentation()
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
+endfunc
+
+" 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" 可以使用TAB鍵從候選關鍵字中選擇想使用哪一個來補全
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
 " ===============================================================================
 " 設定vim-gitgutter
@@ -111,10 +141,24 @@ let g:mkdp_refresh_slow = 1
 let g:mkdp_open_ip = '127.0.0.1'
 
 " ===============================================================================
+" 設定asyncrun
+" ===============================================================================
+let g:asyncrun_open = 10	" 自動開啟 qickfix window，高度設定為10
+let g:async_bell = 1		" 當外部指令執行完畢時會發出聲音
+
+" ===============================================================================
+" 設定vim-rainbow
+" ===============================================================================
+let g:rainbow_active = 1
+let g:rainbow_ctermfgs = [226, 10, 172 , 50, 129]
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :Flog<CR>
 nmap <C-F7> :Flogsplit<CR>
-nmap <F9> :YcmCompleter GetDoc<CR>
+nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
+nmap <F5> :AsyncRun make clean; make debug=1<CR>
+nmap <C-F5> :AsyncRun make clean;make <CR>
