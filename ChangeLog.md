@@ -4,6 +4,7 @@
 ### Added
 
 ### Changed
+- Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.
 
 ### Fixed
 
