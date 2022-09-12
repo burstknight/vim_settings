@@ -2,6 +2,7 @@
 
 ## [Unrelease]
 ### Added
+- Add the plugin `DoxygenToolkit.vim` to generate comments for the tool doxygen that can generate the document using the comments in the code files.
 
 ### Changed
 - Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.
