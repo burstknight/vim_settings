@@ -46,11 +46,9 @@ LIBS =
 # Set the install path
 ######################################################################
 Install_Bin_Dir := /usr/local/bin
-
 Install_Includes_Dir := /usr/local/include
 Install_Libs_Dir 	 := /usr/local/lib
 
-Version := $(Version_Major).$(Version_Minor).$(Version_Release)
 
 # This flag is to control to use release or debug mode to compile code files.
 debug ?= 0
@@ -67,6 +65,8 @@ ifeq ($(debug), 1)
 else
 	CFLAGS += -O3
 endif
+
+Version := $(Version_Major).$(Version_Minor).$(Version_Release)
 
 #########################################################
 # Function generatePkgFile
@@ -85,12 +85,29 @@ define generatePkgFile
 endef
 
 
-.PHONY: clean all install uninstall
+.PHONY: clean all install uninstall static
 
 # Compile the target file with the object files.
-all: $(Bin_Dir)/$(Target)
+all: $(Bin_Dir)/$(Program_Target) static
 
-$(Bin_Dir)/$(Target): $(Objects)
+
+#########################################################
+#
+# Build the project as a static library
+#
+#########################################################
+static: $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).a
+
+$(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).a: $(Objects)
+	mkdir -p $(Bin_Dir)/$(Lib_Target)
+	ar -rcs $@ $<
+
+#########################################################
+#
+# Buid the project as an executable file
+#
+#########################################################
+$(Bin_Dir)/$(Program_Target): $(Objects)
 	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
 # Compile the source code to the object files.
@@ -98,16 +115,23 @@ $(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
 	mkdir -p $(Bin_Dir)
 	$(CC) -c $< $(CFLAGS) -o $@ 
 
-# Install this project.
+#########################################################
+#
+# Install or uninstall this project.
+#
+#########################################################
 install:
 	cp $(Bin_Dir)/$(Target) $(Install_Dir)
 	chmod +x $(Install_Dir)/$(Target)
 
-# Uninstall this project.
 uninstall:
 	rm -f $(Install_Dir)/$(Target)
 
+#########################################################
+#
 # Clean all compiled files.
+#
+#########################################################
 clean:
 	rm -f $(Bin_Dir)/*
 
