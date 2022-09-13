@@ -4,33 +4,62 @@
 # @created     : {{TIMESTAMP}}
 ######################################################################
 
-# This flag is to control to use release or debug mode to compile code files.
-debug ?= 0
 
+######################################################################
+# Set the program name and library name
+######################################################################
+Program_Target := program
+Lib_Target := myLibs
+
+
+######################################################################
+# Set the version for the project.
+######################################################################
+Version_Major 	:= 1
+Version_Minor 	:= 0
+Version_Release := 0
+
+
+######################################################################
 # These directories is set to compile this project.
+######################################################################
 Includes_Dir = ./includes
 Sourc_Dir = ./src
 Bin_Dir = ./bin
 
-# This directory is set to install this project.
-Install_Dir := /usr/local/bin
 
+######################################################################
 # Set the code file extension.
+######################################################################
 File_Extension := c
 
-# Set compiler and flags.
+
+######################################################################
+# Set your compiler and flags
+######################################################################
 CC = gcc
 CFLAGS = -I $(Includes_Dir)
 LIBS = 
+
+
+######################################################################
+# Set the install path
+######################################################################
+Install_Bin_Dir := /usr/local/bin
+
+Install_Includes_Dir := /usr/local/include
+Install_Libs_Dir 	 := /usr/local/lib
+
+Version := $(Version_Major).$(Version_Minor).$(Version_Release)
+
+# This flag is to control to use release or debug mode to compile code files.
+debug ?= 0
 
 # List all source code in the src directory
 Sourcs := $(wildcard $(Sourc_Dir)/*.$(File_Extension))
 
 # Create the list to generate object files
 Objects := $(patsubst $(Sourc_Dir)/%.$(File_Extension), $(Bin_Dir)/%.o, $(Sourcs))
-
-# Set the target file name
-Target = program
 
 # Switch compile mode
 ifeq ($(debug), 1)

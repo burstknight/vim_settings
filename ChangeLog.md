@@ -8,6 +8,7 @@
 
 ### Changed
 - Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.
+- Modify the template file `makefile.template` to set easily configuration.
 
 ### Fixed
 
