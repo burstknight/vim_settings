@@ -68,6 +68,22 @@ else
 	CFLAGS += -O3
 endif
 
+#########################################################
+# Function generatePkgFile
+# Description: generate .pc file
+# arg: the target file path
+#########################################################
+define generatePkgFile
+	echo 'prefix=/usr/local' > $1
+	echo 'include_dir=$${prefix}/include/$(Lib_Target)' >> $1
+	echo 'lib_dir=$${prefix}/lib/$(Lib_Target)\n' >> $1
+	echo 'Name: $(Lib_Target)' >> $1
+	echo 'Version: $(Version)' >> $1
+	echo 'Description: Custom library.' >> $1
+	echo 'Libs: -L$${lib_dir} -l$(Lib_Target)' >> $1
+	echo 'Cflags: -I$${include_dir}' >> $1
+endef
+
 
 .PHONY: clean all install uninstall
 
