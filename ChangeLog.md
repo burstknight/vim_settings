@@ -5,11 +5,18 @@
 - Add the plugin `DoxygenToolkit.vim` to generate comments for the tool doxygen that can generate the document using the comments in the code files.
 - Update `setup.sh` to install the tool `doxygen` and `graphviz`.
 - Add the template file for the configuration of the tool `doxygen`.
+- Add the function `generatePkgFIle` into the template file `makefile.template` to generate `.pc` file.
+- Update the template file `makefile.template` to build a project to a static library.
+- Update the template file `makefile.template` to install or uninstall a static library.
 
 ### Changed
 - Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.
+- Modify the template file `makefile.template` to set easily configuration.
 
 ### Fixed
+- Fixed the bug that the template file `makefile.template` could not generate `.pc` file because the syntax is wrong for calling function in makefile.
+- Fixed the bug that the template file `makefile.template` could not install a static library because the commands were wrong.
+- Fixed the bug that the template file `makefile.template` would install the executable of a project into wrong path.
 
 ### Removed
 
