@@ -14,6 +14,7 @@
 - Modify the template file `makefile.template` to set easily configuration.
 
 ### Fixed
+- Fixed the bug that the template file `makefile.template` could not generate `.pc` file because the syntax is wrong for calling function in makefile.
 
 ### Removed
 

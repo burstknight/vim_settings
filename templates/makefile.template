@@ -130,7 +130,7 @@ install:
 	mkdir -p $(Install_Libs_Dir)
 	cp -r *.h $(Install_Includes_Dir)
 	cp -r $(Bin_Dir)/$(Lib_Target) 
-	$(call generatePkgFile $(Bin_Dir)$(Lib_Target).pc)
+	$(call generatePkgFile, $(Bin_Dir)/$(Lib_Target).pc)
 	cp $(Bin_Dir)/$(Lib_Target).pc /usr/lib/pkgconfig
 
 uninstall:
