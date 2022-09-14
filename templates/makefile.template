@@ -128,8 +128,8 @@ install:
 # Install static library
 	mkdir -p $(Install_Includes_Dir)
 	mkdir -p $(Install_Libs_Dir)
-	cp -r *.h $(Install_Includes_Dir)
-	cp -r $(Bin_Dir)/$(Lib_Target) 
+	cp -r $(Includes_Dir)/*.h $(Install_Includes_Dir)
+	cp -r $(Bin_Dir)/$(Lib_Target)/* $(Install_Libs_Dir)
 	$(call generatePkgFile, $(Bin_Dir)/$(Lib_Target).pc)
 	cp $(Bin_Dir)/$(Lib_Target).pc /usr/lib/pkgconfig
 

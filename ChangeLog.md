@@ -15,6 +15,7 @@
 
 ### Fixed
 - Fixed the bug that the template file `makefile.template` could not generate `.pc` file because the syntax is wrong for calling function in makefile.
+- Fixed the bug that the template file `makefile.template` could not install a static library because the commands were wrong.
 
 ### Removed
 
