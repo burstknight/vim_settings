@@ -33,6 +33,7 @@ Key				| Function
 `<F7>`			| Split a buffer to show git commit history
 `<F5>`			| Use the command `make` to build C/C++ code for debug
 `Ctrl` + `<F5>`	| Use the command `make` to build C/C++ code for release
+`<F8>` 			| Use the command `:Dox` in the plugin `DoxygenToolkit.vim` to insert comments for functions or class in C/C++.
 `<F9>`			| Show the document of the functions or classes
 `<F10>`			| Open or close quickfix window for the plugin `asyncrun`
 
@@ -65,3 +66,6 @@ Commands			| Function
 `:TemplateAutoInit`	| Load a template file to write the current file.
 `:MarkdownPreview`	| Open a web browser to preview markdon file.
 `:CocConfig` 		| Open the configuration file to edit for the plugin `coc.nvim`.
+`:DoxLic` 			| Instert the doxygen-style comments for license at the location of the current edited code file.
+`:DocAuthor` 		| Insert the doxygen-style comments for the author infomation at the location of the current edited code file.
+`:DoxBlock` 		| Instert the doxygen-style comments for a group comments at the location of the current edited code file.

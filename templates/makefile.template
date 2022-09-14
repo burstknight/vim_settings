@@ -4,33 +4,60 @@
 # @created     : {{TIMESTAMP}}
 ######################################################################
 
-# This flag is to control to use release or debug mode to compile code files.
-debug ?= 0
 
+######################################################################
+# Set the program name and library name
+######################################################################
+Program_Target := program
+Lib_Target := myLibs
+
+
+######################################################################
+# Set the version for the project.
+######################################################################
+Version_Major 	:= 1
+Version_Minor 	:= 0
+Version_Release := 0
+
+
+######################################################################
 # These directories is set to compile this project.
+######################################################################
 Includes_Dir = ./includes
 Sourc_Dir = ./src
 Bin_Dir = ./bin
 
-# This directory is set to install this project.
-Install_Dir := /usr/local/bin
 
+######################################################################
 # Set the code file extension.
+######################################################################
 File_Extension := c
 
-# Set compiler and flags.
+
+######################################################################
+# Set your compiler and flags
+######################################################################
 CC = gcc
 CFLAGS = -I $(Includes_Dir)
 LIBS = 
+
+
+######################################################################
+# Set the install path
+######################################################################
+Install_Bin_Dir := /usr/local/bin
+Install_Includes_Dir := /usr/local/include/$(Lib_Target)
+Install_Libs_Dir 	 := /usr/local/lib/$(Lib_Target)
+
+
+# This flag is to control to use release or debug mode to compile code files.
+debug ?= 0
 
 # List all source code in the src directory
 Sourcs := $(wildcard $(Sourc_Dir)/*.$(File_Extension))
 
 # Create the list to generate object files
 Objects := $(patsubst $(Sourc_Dir)/%.$(File_Extension), $(Bin_Dir)/%.o, $(Sourcs))
-
-# Set the target file name
-Target = program
 
 # Switch compile mode
 ifeq ($(debug), 1)
@@ -39,13 +66,48 @@ else
 	CFLAGS += -O3
 endif
 
+Version := $(Version_Major).$(Version_Minor).$(Version_Release)
 
-.PHONY: clean all install uninstall
+#########################################################
+# Function generatePkgFile
+# Description: generate .pc file
+# arg: the target file path
+#########################################################
+define generatePkgFile
+	echo 'prefix=/usr/local' > $1
+	echo 'include_dir=$${prefix}/include/$(Lib_Target)' >> $1
+	echo 'lib_dir=$${prefix}/lib/$(Lib_Target)\n' >> $1
+	echo 'Name: $(Lib_Target)' >> $1
+	echo 'Version: $(Version)' >> $1
+	echo 'Description: Custom library.' >> $1
+	echo 'Libs: -L$${lib_dir} -l$(Lib_Target)' >> $1
+	echo 'Cflags: -I$${include_dir}' >> $1
+endef
+
+
+.PHONY: clean all install uninstall static
 
 # Compile the target file with the object files.
-all: $(Bin_Dir)/$(Target)
+all: $(Bin_Dir)/$(Program_Target) static
 
-$(Bin_Dir)/$(Target): $(Objects)
+
+#########################################################
+#
+# Build the project as a static library
+#
+#########################################################
+static: $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).a
+
+$(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).a: $(Objects)
+	mkdir -p $(Bin_Dir)/$(Lib_Target)
+	ar -rcs $@ $<
+
+#########################################################
+#
+# Buid the project as an executable file
+#
+#########################################################
+$(Bin_Dir)/$(Program_Target): $(Objects)
 	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
 # Compile the source code to the object files.
@@ -53,16 +115,35 @@ $(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
 	mkdir -p $(Bin_Dir)
 	$(CC) -c $< $(CFLAGS) -o $@ 
 
-# Install this project.
+#########################################################
+#
+# Install or uninstall this project.
+#
+#########################################################
 install:
-	cp $(Bin_Dir)/$(Target) $(Install_Dir)
-	chmod +x $(Install_Dir)/$(Target)
+# Install binary file
+	mkdir -p $(Install_Bin_Dir)
+	cp $(Bin_Dir)/$(Program_Target) $(Install_Bin_Dir)
+	chmod +x $(Install_Bin_Dir)/$(Program_Target)
+# Install static library
+	mkdir -p $(Install_Includes_Dir)
+	mkdir -p $(Install_Libs_Dir)
+	cp -r $(Includes_Dir)/*.h $(Install_Includes_Dir)
+	cp -r $(Bin_Dir)/$(Lib_Target)/* $(Install_Libs_Dir)
+	$(call generatePkgFile, $(Bin_Dir)/$(Lib_Target).pc)
+	cp $(Bin_Dir)/$(Lib_Target).pc /usr/lib/pkgconfig
 
-# Uninstall this project.
 uninstall:
-	rm -f $(Install_Dir)/$(Target)
+	rm -rf $(Install_Bin_Dir)
+	rm -rf $(Install_Includes_Dir)
+	rm -rf $(Install_Libs_Dir)
+	rm -f /usr/lib/pkgconfig/$(Lib_Target).pc
 
+#########################################################
+#
 # Clean all compiled files.
+#
+#########################################################
 clean:
-	rm -f $(Bin_Dir)/*
+	rm -rf $(Bin_Dir)/*
 

@@ -27,7 +27,7 @@ Plugin 'neoclide/coc.nvim'
 
 " 這個外掛用來顯示Git的commit的歷史紀錄
 Plugin 'tpope/vim-fugitive'
-Plugin 'rbong/vim-flog'
+Plugin 'junegunn/gv.vim'
 
 " 這個外掛可以搭配Git即時顯示檔案修改狀態
 Plugin 'airblade/vim-gitgutter'
@@ -48,6 +48,9 @@ Plugin 'jiangmiao/auto-pairs'
 
 " vim 顏色主題
 Plugin 'tomasiser/vim-code-dark'
+
+" doxygen註解補齊工具
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -157,8 +160,8 @@ let g:rainbow_ctermfgs = [226, 10, 172 , 50, 129]
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
-nmap <F7> :Flog<CR>
-nmap <C-F7> :Flogsplit<CR>
+nmap <F7> :GV<CR>
+nmap <F8> :Dox<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>
