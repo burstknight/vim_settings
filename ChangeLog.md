@@ -7,6 +7,7 @@
 - Add the template file for the configuration of the tool `doxygen`.
 - Add the function `generatePkgFIle` into the template file `makefile.template` to generate `.pc` file.
 - Update the template file `makefile.template` to build a project to a static library.
+- Update the template file `makefile.template` to install or uninstall a static library.
 
 ### Changed
 - Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.

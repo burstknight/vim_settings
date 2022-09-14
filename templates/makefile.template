@@ -45,9 +45,9 @@ LIBS =
 ######################################################################
 # Set the install path
 ######################################################################
-Install_Bin_Dir := /usr/local/bin
-Install_Includes_Dir := /usr/local/include
-Install_Libs_Dir 	 := /usr/local/lib
+Install_Bin_Dir := /usr/local/bin$(Program_Target)
+Install_Includes_Dir := /usr/local/include/$(Lib_Target)
+Install_Libs_Dir 	 := /usr/local/lib/$(Lib_Target)
 
 
 # This flag is to control to use release or debug mode to compile code files.
@@ -121,11 +121,23 @@ $(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
 #
 #########################################################
 install:
-	cp $(Bin_Dir)/$(Target) $(Install_Dir)
-	chmod +x $(Install_Dir)/$(Target)
+# Install binary file
+	mkdir -p $(Install_Bin_Dir)
+	cp $(Bin_Dir)/$(Program_Target) $(Install_Bin_Dir)
+	chmod +x $(Install_Bin_Dir)/$(Program_Target)
+# Install static library
+	mkdir -p $(Install_Includes_Dir)
+	mkdir -p $(Install_Libs_Dir)
+	cp -r *.h $(Install_Includes_Dir)
+	cp -r $(Bin_Dir)/$(Lib_Target) 
+	$(call generatePkgFile $(Bin_Dir)$(Lib_Target).pc)
+	cp $(Bin_Dir)/$(Lib_Target).pc /usr/lib/pkgconfig
 
 uninstall:
-	rm -f $(Install_Dir)/$(Target)
+	rm -rf $(Install_Bin_Dir)
+	rm -rf $(Install_Includes_Dir)
+	rm -rf $(Install_Libs_Dir)
+	rm -f /usr/lib/pkgconfig/$(Lib_Target).pc
 
 #########################################################
 #
@@ -133,5 +145,5 @@ uninstall:
 #
 #########################################################
 clean:
-	rm -f $(Bin_Dir)/*
+	rm -rf $(Bin_Dir)/*
 
