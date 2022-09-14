@@ -2,6 +2,16 @@
 
 ## [Unrelease]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+---------------------------
+## [1.2.0] - 2022/09/14
+### Added
 - Add the plugin `DoxygenToolkit.vim` to generate comments for the tool doxygen that can generate the document using the comments in the code files.
 - Update `setup.sh` to install the tool `doxygen` and `graphviz`.
 - Add the template file for the configuration of the tool `doxygen`.
@@ -18,8 +28,6 @@
 - Fixed the bug that the template file `makefile.template` could not generate `.pc` file because the syntax is wrong for calling function in makefile.
 - Fixed the bug that the template file `makefile.template` could not install a static library because the commands were wrong.
 - Fixed the bug that the template file `makefile.template` would install the executable of a project into wrong path.
-
-### Removed
 
 ---------------------------
 ## [1.1.0] - 2022/08/11
