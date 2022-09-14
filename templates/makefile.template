@@ -45,7 +45,7 @@ LIBS =
 ######################################################################
 # Set the install path
 ######################################################################
-Install_Bin_Dir := /usr/local/bin$(Program_Target)
+Install_Bin_Dir := /usr/local/bin
 Install_Includes_Dir := /usr/local/include/$(Lib_Target)
 Install_Libs_Dir 	 := /usr/local/lib/$(Lib_Target)
 
