@@ -8,6 +8,7 @@
 - Add the function `generatePkgFIle` into the template file `makefile.template` to generate `.pc` file.
 - Update the template file `makefile.template` to build a project to a static library.
 - Update the template file `makefile.template` to install or uninstall a static library.
+- Update the template file `git_commit_template` for fix commit.
 
 ### Changed
 - Replace the plugin `vim-flog` with the plugin `gv.vim` to handle git commit browser.
