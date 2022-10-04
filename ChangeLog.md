@@ -2,6 +2,7 @@
 
 ## [Unrelease]
 ### Added
+- Add setting into `.vimrc` to show multiple lines in a file for readability.
 
 ### Changed
 

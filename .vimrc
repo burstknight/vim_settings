@@ -72,6 +72,8 @@ set smartindent		" 智能縮排
 set completeopt=longest,menu	" 智能補全
 set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文字
 colorscheme codedark
+set linebreak 		" 設定拆行時英文詞彙會以完整的方式顯示在下一行
+set showbreak=>> 	" 設定拆行的接續符號
 
 " ===============================================================================
 " 設定NERDTree
