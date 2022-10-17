@@ -3,6 +3,7 @@
 ## [Unrelease]
 ### Added
 - Add setting into `.vimrc` to show multiple lines in a file for readability.
+- Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
 
 ### Changed
 
