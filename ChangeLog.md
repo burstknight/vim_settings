@@ -6,6 +6,7 @@
 - Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
 
 ### Changed
+- Update the git commit template.
 
 ### Fixed
 
