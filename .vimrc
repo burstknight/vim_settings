@@ -183,7 +183,7 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
 nmap <F8> :Dox<CR>
-nnoremap <S-p> :CtrlPFunky<CR>
+nnoremap <Leader>fu :CtrlPFunky<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>

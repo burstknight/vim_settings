@@ -9,6 +9,7 @@
 - Update the git commit template.
 
 ### Fixed
+- Change the shortcut of the plugin `ctrl-funky` because the old shortcut is same the paste command.
 
 ### Removed
 
