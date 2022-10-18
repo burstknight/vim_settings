@@ -4,6 +4,7 @@
 ### Added
 - Add setting into `.vimrc` to show multiple lines in a file for readability.
 - Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
+- Update the template file `makefile.template` to build shared library.
 
 ### Changed
 - Update the git commit template.
