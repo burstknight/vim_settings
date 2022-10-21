@@ -10,6 +10,22 @@
 ### Removed
 
 ---------------------------
+## [1.3.0] - 2022/10/21
+### Added
+- Add setting into `.vimrc` to show multiple lines in a file for readability.
+- Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
+- Update the template file `makefile.template` to build shared library.
+- Add ignore rule into `.vimrc` to improve the performance for the plugin `ctrl.vim`.
+- Update `.vimrc` to ignore image file for the plugin `ctrp.vim`.
+
+### Changed
+- Update the git commit template.
+- Change the shortcut for the plugin `ctrp-funky`.
+
+### Fixed
+- Change the shortcut of the plugin `ctrl-funky` because the old shortcut is same the paste command.
+
+---------------------------
 ## [1.2.0] - 2022/09/14
 ### Added
 - Add the plugin `DoxygenToolkit.vim` to generate comments for the tool doxygen that can generate the document using the comments in the code files.
