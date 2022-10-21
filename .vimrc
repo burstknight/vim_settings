@@ -52,6 +52,13 @@ Plugin 'tomasiser/vim-code-dark'
 " doxygen註解補齊工具
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 
+" 只需給予關鍵字就能夠尋找特定的檔案
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" 可在當前編輯的檔案中使用關鍵字搜尋函數
+Plugin 'tacahiroy/ctrlp-funky'
+
+
 call vundle#end()
 filetype plugin indent on
 
@@ -72,6 +79,8 @@ set smartindent		" 智能縮排
 set completeopt=longest,menu	" 智能補全
 set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文字
 colorscheme codedark
+set linebreak 		" 設定拆行時英文詞彙會以完整的方式顯示在下一行
+set showbreak=>> 	" 設定拆行的接續符號
 
 " ===============================================================================
 " 設定NERDTree
@@ -156,12 +165,26 @@ let g:rainbow_active = 1
 let g:rainbow_ctermfgs = [226, 10, 172 , 50, 129]
 
 " ===============================================================================
+" 設定CtrlP
+" ===============================================================================
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'rc'
+let g:ctrlp_catch_dir = $HOME . '/.cache/ctrlp'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.7z,*.rar,*/.git/*,*.o,*.so.*,*.pyd,*.pyc,*/bin/*,*/build/*,*.bmp,*.png,*.jpg,*.jpeg
+let g:ctrlp_custom_ignore = {
+			\ 'dir': '\v[/\]\.(git|hg|svn)$',
+			\ 'file': '\v\.(exe|so|dll|o)$',
+			\}
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
 nmap <F8> :Dox<CR>
+nnoremap <Leader>ff :CtrlPFunky<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>

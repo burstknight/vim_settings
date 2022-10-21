@@ -25,17 +25,19 @@ You can follow these steps to use this project to setup vim configuration.
 ### Shortcuts
 My shortcuts are defined:
 
-Key				| Function
-----------------|------------------------------------------------------------------
-`<F2>`			| Open or close file explorer
-`<F3>`			| Open or close tagbar
-`Ctrl` + `<F7>`	| Open a new tab to show git commit history
-`<F7>`			| Split a buffer to show git commit history
-`<F5>`			| Use the command `make` to build C/C++ code for debug
-`Ctrl` + `<F5>`	| Use the command `make` to build C/C++ code for release
-`<F8>` 			| Use the command `:Dox` in the plugin `DoxygenToolkit.vim` to insert comments for functions or class in C/C++.
-`<F9>`			| Show the document of the functions or classes
-`<F10>`			| Open or close quickfix window for the plugin `asyncrun`
+Key					| Function
+--------------------|------------------------------------------------------------------
+`<F2>`				| Open or close file explorer
+`<F3>`				| Open or close tagbar
+`Ctrl` + `<F7>`		| Open a new tab to show git commit history
+`<F7>`				| Split a buffer to show git commit history
+`<F5>`				| Use the command `make` to build C/C++ code for debug
+`Ctrl` + `<F5>`		| Use the command `make` to build C/C++ code for release
+`<F8>` 				| Use the command `:Dox` in the plugin `DoxygenToolkit.vim` to insert comments for functions or class in C/C++.
+`<F9>`				| Show the document of the functions or classes
+`<F10>`				| Open or close quickfix window for the plugin `asyncrun`
+`<Leader>` + `ff` 	| Use the command `:CtrlPFunky` to fuzzy search function names in the current edited cod file.
+`Ctrl` + `p` 		| Use the command `:CtrlP` to fuzzy search files.
 
 ### Coc.nvim Setting
 If you hope the plugin `coc.nvim` to support your C/C++ library or other libraries, you can use the command `:CocConfig` in vim to edit the configuration file. And then the plugin `coc.nvim` will use the configuration file to show hint for any functions, variables etc.

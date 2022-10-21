@@ -38,7 +38,7 @@ File_Extension := c
 # Set your compiler and flags
 ######################################################################
 CC = gcc
-CFLAGS = -I $(Includes_Dir)
+CFLAGS = -I$(Includes_Dir) -fPIC
 LIBS = 
 
 
@@ -85,10 +85,10 @@ define generatePkgFile
 endef
 
 
-.PHONY: clean all install uninstall static
+.PHONY: clean all install uninstall static shared
 
 # Compile the target file with the object files.
-all: $(Bin_Dir)/$(Program_Target) static
+all: $(Bin_Dir)/$(Program_Target) static shared
 
 
 #########################################################
@@ -104,13 +104,30 @@ $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).a: $(Objects)
 
 #########################################################
 #
+# Build the project as a shared library
+#
+#########################################################
+shared: $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).so.$(Version)
+	ln -sfr $< $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).so
+	ln -sfr $< $(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).so.$(Version_Major)
+
+$(Bin_Dir)/$(Lib_Target)/lib$(Lib_Target).so.$(Version): $(Objects)
+	mkdir -p $(Bin_Dir)/$(Lib_Target)
+	$(CC) $^ -shared -Wl,-soname,lib$(Lib_Target).so.$(Version_Major) -o $@
+
+#########################################################
+#
 # Buid the project as an executable file
 #
 #########################################################
 $(Bin_Dir)/$(Program_Target): $(Objects)
 	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
+#########################################################
+#
 # Compile the source code to the object files.
+#
+#########################################################
 $(Bin_Dir)/%.o: $(Sourc_Dir)/%.$(File_Extension)
 	mkdir -p $(Bin_Dir)
 	$(CC) -c $< $(CFLAGS) -o $@ 
@@ -132,12 +149,17 @@ install:
 	cp -r $(Bin_Dir)/$(Lib_Target)/* $(Install_Libs_Dir)
 	$(call generatePkgFile, $(Bin_Dir)/$(Lib_Target).pc)
 	cp $(Bin_Dir)/$(Lib_Target).pc /usr/lib/pkgconfig
+# Install for shared library
+	echo $(Install_Libs_Dir) >> /etc/ld.so.conf
+	sudo ldconfig -v
 
 uninstall:
 	rm -rf $(Install_Bin_Dir)
 	rm -rf $(Install_Includes_Dir)
 	rm -rf $(Install_Libs_Dir)
 	rm -f /usr/lib/pkgconfig/$(Lib_Target).pc
+	sudo sed -i '/$(Lib_Target)/d' /etc/ld.so.conf
+	sudo ldconfig -v
 
 #########################################################
 #
