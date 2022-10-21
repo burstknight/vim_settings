@@ -9,6 +9,7 @@
 
 ### Changed
 - Update the git commit template.
+- Change the shortcut for the plugin `ctrp-funky`.
 
 ### Fixed
 - Change the shortcut of the plugin `ctrl-funky` because the old shortcut is same the paste command.

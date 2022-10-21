@@ -36,7 +36,7 @@ Key					| Function
 `<F8>` 				| Use the command `:Dox` in the plugin `DoxygenToolkit.vim` to insert comments for functions or class in C/C++.
 `<F9>`				| Show the document of the functions or classes
 `<F10>`				| Open or close quickfix window for the plugin `asyncrun`
-`<Leader>` + `fu` 	| Use the command `:CtrlPFunky` to fuzzy search function names in the current edited cod file.
+`<Leader>` + `ff` 	| Use the command `:CtrlPFunky` to fuzzy search function names in the current edited cod file.
 `Ctrl` + `p` 		| Use the command `:CtrlP` to fuzzy search files.
 
 ### Coc.nvim Setting
