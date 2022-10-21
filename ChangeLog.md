@@ -2,6 +2,16 @@
 
 ## [Unrelease]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+---------------------------
+## [1.3.0] - 2022/10/21
+### Added
 - Add setting into `.vimrc` to show multiple lines in a file for readability.
 - Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
 - Update the template file `makefile.template` to build shared library.
@@ -14,8 +24,6 @@
 
 ### Fixed
 - Change the shortcut of the plugin `ctrl-funky` because the old shortcut is same the paste command.
-
-### Removed
 
 ---------------------------
 ## [1.2.0] - 2022/09/14
