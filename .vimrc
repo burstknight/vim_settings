@@ -53,7 +53,7 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 " 只需給予關鍵字就能夠尋找特定的檔案
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " 可在當前編輯的檔案中使用關鍵字搜尋函數
 Plugin 'tacahiroy/ctrlp-funky'
@@ -170,10 +170,11 @@ let g:rainbow_ctermfgs = [226, 10, 172 , 50, 129]
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_catch_dir = $HOME . '/.cache/ctrlp'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.7z,*.rar,*/.git/*,*.o,*.so.*,*.pyd,*.pyc,*/bin/*,*/build/*
 let g:ctrlp_custom_ignore = {
-			\ 'dir':  '\v[\/]/(git|hg|svn)$',
-			\ 'file': '\v\.(exe|so|dll)$',
+			\ 'dir': '\v[/\]\.(git|hg|svn)$',
+			\ 'file': '\v\.(exe|so|dll|o)$',
 			\}
 
 " ===============================================================================
