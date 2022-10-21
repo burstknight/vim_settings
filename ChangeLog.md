@@ -6,6 +6,7 @@
 - Add the plugins `ctrl.vim` and `ctrp-funky` to fuzzy search files and functions in the editing code files.
 - Update the template file `makefile.template` to build shared library.
 - Add ignore rule into `.vimrc` to improve the performance for the plugin `ctrl.vim`.
+- Update `.vimrc` to ignore image file for the plugin `ctrp.vim`.
 
 ### Changed
 - Update the git commit template.

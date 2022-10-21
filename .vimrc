@@ -171,7 +171,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_catch_dir = $HOME . '/.cache/ctrlp'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.7z,*.rar,*/.git/*,*.o,*.so.*,*.pyd,*.pyc,*/bin/*,*/build/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.7z,*.rar,*/.git/*,*.o,*.so.*,*.pyd,*.pyc,*/bin/*,*/build/*,*.bmp,*.png,*.jpg,*.jpeg
 let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[/\]\.(git|hg|svn)$',
 			\ 'file': '\v\.(exe|so|dll|o)$',
