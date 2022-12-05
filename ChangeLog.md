@@ -6,6 +6,7 @@
 ### Changed
 
 ### Fixed
+- The plugin `coc.nvim` couldn't allow using `enter` key to select the first item for auto completion.
 
 ### Removed
 

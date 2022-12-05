@@ -118,7 +118,7 @@ func! ShowDocumentation()
 endfunc
 
 " 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " 可以使用TAB鍵從候選關鍵字中選擇想使用哪一個來補全
 function! s:check_back_space() abort
