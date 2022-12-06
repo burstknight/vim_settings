@@ -2,6 +2,7 @@
 
 ## [Unrelease]
 ### Added
+- Update `.vimrc` to highlight the position of the current cursor.
 
 ### Changed
 

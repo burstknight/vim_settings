@@ -81,6 +81,8 @@ set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文�
 colorscheme codedark
 set linebreak 		" 設定拆行時英文詞彙會以完整的方式顯示在下一行
 set showbreak=>> 	" 設定拆行的接續符號
+set cursorline 		" 設定凸顯出游標所在的行
+set cursorcolumn 	" 設定凸顯游標在某一行中的位置
 
 " ===============================================================================
 " 設定NERDTree
