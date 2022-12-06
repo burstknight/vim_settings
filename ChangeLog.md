@@ -3,6 +3,7 @@
 ## [Unrelease]
 ### Added
 - Update `.vimrc` to highlight the position of the current cursor.
+- The plugin `coc.nvim` allows using `Shift + Tab` to select previous item for completion.
 
 ### Changed
 
