@@ -2,10 +2,14 @@
 
 ## [Unrelease]
 ### Added
+- Update `.vimrc` to highlight the position of the current cursor.
+- The plugin `coc.nvim` allows using `Shift + Tab` to select previous item for completion.
 
 ### Changed
 
 ### Fixed
+- The plugin `coc.nvim` couldn't allow using `enter` key to select the first item for auto completion.
+- The plugin `coc.nvim` couldn't allow using `tab` key for auto completion.
 
 ### Removed
 
