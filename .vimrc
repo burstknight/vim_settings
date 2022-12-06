@@ -81,6 +81,8 @@ set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文�
 colorscheme codedark
 set linebreak 		" 設定拆行時英文詞彙會以完整的方式顯示在下一行
 set showbreak=>> 	" 設定拆行的接續符號
+set cursorline 		" 設定凸顯出游標所在的行
+set cursorcolumn 	" 設定凸顯游標在某一行中的位置
 
 " ===============================================================================
 " 設定NERDTree
@@ -118,18 +120,19 @@ func! ShowDocumentation()
 endfunc
 
 " 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " 可以使用TAB鍵從候選關鍵字中選擇想使用哪一個來補全
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " ===============================================================================
 " 設定vim-gitgutter
