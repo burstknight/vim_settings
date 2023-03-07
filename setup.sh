@@ -30,3 +30,5 @@ cd ~/.vim/bundle/markdown-preview.nvim/app
 sh ./install.sh
 yarn
 cd -
+
+cp .tmux.conf ~

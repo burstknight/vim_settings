@@ -4,6 +4,7 @@
 ## [Unrelease]
 ### Added
 - Add a setting to let vim show color for using tmux.
+- Add tmux config file to show color for vim.
 
 ### Changed
 
