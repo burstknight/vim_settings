@@ -3,6 +3,7 @@
 ---------------------------
 ## [Unrelease]
 ### Added
+- Add a setting to let vim show color for using tmux.
 
 ### Changed
 
