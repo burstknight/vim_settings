@@ -1,13 +1,27 @@
 # Change Log
 
+---------------------------
 ## [Unrelease]
 ### Added
+- Add a setting to let vim show color for using tmux.
+- Add tmux config file to show color for vim.
+- Add a template file for setting the plguin `coc.nvim` config.
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
+---------------------------
+## [1.3.1] - 2022/12/06
+### Added
+- Update `.vimrc` to highlight the position of the current cursor.
+- The plugin `coc.nvim` allows using `Shift + Tab` to select previous item for completion.
+
+### Fixed
+- The plugin `coc.nvim` couldn't allow using `enter` key to select the first item for auto completion.
+- The plugin `coc.nvim` couldn't allow using `tab` key for auto completion.
 
 ---------------------------
 ## [1.3.0] - 2022/10/21

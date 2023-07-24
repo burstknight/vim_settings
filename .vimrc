@@ -81,6 +81,13 @@ set backspace=2					" 設定在插入模式下可以使用Backspace鍵刪除文�
 colorscheme codedark
 set linebreak 		" 設定拆行時英文詞彙會以完整的方式顯示在下一行
 set showbreak=>> 	" 設定拆行的接續符號
+set cursorline 		" 設定凸顯出游標所在的行
+set cursorcolumn 	" 設定凸顯游標在某一行中的位置
+
+" 設定vim可以在使用tmux時顯示全彩
+if exists('+termguicolors')
+	set termguicolors
+endif
 
 " ===============================================================================
 " 設定NERDTree
@@ -118,18 +125,19 @@ func! ShowDocumentation()
 endfunc
 
 " 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " 可以使用TAB鍵從候選關鍵字中選擇想使用哪一個來補全
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " ===============================================================================
 " 設定vim-gitgutter
@@ -180,6 +188,21 @@ let g:ctrlp_custom_ignore = {
 " ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
+
+function InitializeCocSettings()
+	:au BufNewFile coc-settings.json r ~/.vim/templates/coc-settings.template
+endfunction
+
+nnoremap <Leader>ci :call InitializeCocSettings()<CR>
+
+" GoTo 快捷鍵
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gt <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-referecnes)
+
+nmap <Leader>rn <Plug>(coc-rename)
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
@@ -188,3 +211,6 @@ nnoremap <Leader>ff :CtrlPFunky<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>
+nnoremap <Leader>ti :TemplateAutoInit<CR>
+nnoremap <Leader>mp :MarkdownPreview<CR>
+
