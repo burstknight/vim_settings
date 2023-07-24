@@ -195,6 +195,14 @@ endfunction
 
 nnoremap <Leader>ci :call InitializeCocSettings()<CR>
 
+" GoTo 快捷鍵
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gt <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-referecnes)
+
+nmap <Leader>rn <Plug>(coc-rename)
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
@@ -203,4 +211,6 @@ nnoremap <Leader>ff :CtrlPFunky<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>
+nnoremap <Leader>ti :TemplateAutoInit<CR>
+nnoremap <Leader>mp :MarkdownPreview<CR>
 
