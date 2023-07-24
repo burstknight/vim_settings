@@ -39,6 +39,11 @@ Key					| Function
 `<Leader>` + `ff` 	| Use the command `:CtrlPFunky` to fuzzy search function names in the current edited cod file.
 `<Leader>` + `ci` 	| Complete for coc settings file `coc-settings.json`.
 `Ctrl` + `p` 		| Use the command `:CtrlP` to fuzzy search files.
+`<Leader>` + `gd` 	| Go to function definition.
+`<Leader>` + `gt` 	| Go to variable type definition.
+`<Leader>` + `gi` 	| Go to the implementation for variable or function.
+`<Leader>` + `gr` 	| Go to referecnes for variable or function.
+`<Leader>` + `rn` 	| Rename the symbol (fucntion or variable).
 
 ### Coc.nvim Setting
 If you hope the plugin `coc.nvim` to support your C/C++ library or other libraries, you can use the command `:CocConfig` in vim to edit the configuration file. And then the plugin `coc.nvim` will use the configuration file to show hint for any functions, variables etc.
