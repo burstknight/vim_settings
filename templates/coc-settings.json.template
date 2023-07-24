@@ -1,0 +1,19 @@
+{
+	"clangd.enable": true,
+	"clangd.fallbackFlags": [
+		"-std="
+	],
+	"pyright.enable": true,
+	"pyright.venvPath": "",
+	"sh.enable": true,
+	"languageserver": {
+		"cmake": {
+			"command": "cmake-language-server",
+			"filetypes": ["cmake"],
+			"rootPatterns": ["build/"],
+			"initializationOptions": {
+				"buildDirectory": "build"
+			}
+		}
+	}
+}
