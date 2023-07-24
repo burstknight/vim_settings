@@ -195,6 +195,14 @@ endfunction
 
 nnoremap <Leader>ci :call InitializeCocSettings()<CR>
 
+" GoTo 快捷鍵
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gt <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-referecnes)
+
+nmap <Leader>rn <Plug>(coc-rename)
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
