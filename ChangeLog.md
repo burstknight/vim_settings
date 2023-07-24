@@ -5,6 +5,7 @@
 ### Added
 - Add a setting to let vim show color for using tmux.
 - Add tmux config file to show color for vim.
+- Add a template file for setting the plguin `coc.nvim` config.
 
 ### Changed
 

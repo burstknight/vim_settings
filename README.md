@@ -37,6 +37,7 @@ Key					| Function
 `<F9>`				| Show the document of the functions or classes
 `<F10>`				| Open or close quickfix window for the plugin `asyncrun`
 `<Leader>` + `ff` 	| Use the command `:CtrlPFunky` to fuzzy search function names in the current edited cod file.
+`<Leader>` + `ci` 	| Complete for coc settings file `coc-settings.json`.
 `Ctrl` + `p` 		| Use the command `:CtrlP` to fuzzy search files.
 
 ### Coc.nvim Setting
@@ -54,7 +55,7 @@ where the directory `includes` has all head files; the directory `lib` has all l
 Here is a example for the library `myLib`:
 ```json
 {
-	clangd.fallbackFlags: [
+	"clangd.fallbackFlags": [
 		"-I/opt/myLib/include"
 	]
 }
