@@ -3,15 +3,20 @@
 ---------------------------
 ## [Unrelease]
 ### Added
-- Add a setting to let vim show color for using tmux.
-- Add tmux config file to show color for vim.
-- Add a template file for setting the plguin `coc.nvim` config.
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
+---------------------------
+## [1.4.0] - 2023/07/24
+### Added
+- Add a setting to let vim show color for using tmux.
+- Add tmux config file to show color for vim.
+- Add a template file for setting the plguin `coc.nvim` config.
+- Update the shell script file `setup.sh` for the tool `msys2`.
 
 ---------------------------
 ## [1.3.1] - 2022/12/06
