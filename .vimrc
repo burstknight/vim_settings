@@ -84,6 +84,11 @@ set showbreak=>> 	" 設定拆行的接續符號
 set cursorline 		" 設定凸顯出游標所在的行
 set cursorcolumn 	" 設定凸顯游標在某一行中的位置
 
+" 設定vim可以在使用tmux時顯示全彩
+if exists('+termguicolors')
+	set termguicolors
+endif
+
 " ===============================================================================
 " 設定NERDTree
 " ===============================================================================
@@ -183,6 +188,21 @@ let g:ctrlp_custom_ignore = {
 " ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
+
+function InitializeCocSettings()
+	:au BufNewFile coc-settings.json r ~/.vim/templates/coc-settings.template
+endfunction
+
+nnoremap <Leader>ci :call InitializeCocSettings()<CR>
+
+" GoTo 快捷鍵
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gt <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-referecnes)
+
+nmap <Leader>rn <Plug>(coc-rename)
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F7> :GV<CR>
@@ -191,3 +211,6 @@ nnoremap <Leader>ff :CtrlPFunky<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<CR>
 nmap <F5> :AsyncRun make clean; make debug=1<CR>
 nmap <C-F5> :AsyncRun make clean;make <CR>
+nnoremap <Leader>ti :TemplateAutoInit<CR>
+nnoremap <Leader>mp :MarkdownPreview<CR>
+
