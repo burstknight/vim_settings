@@ -39,4 +39,3 @@ sh ./install.sh
 yarn
 cd -
 
-cp .tmux.conf ~
