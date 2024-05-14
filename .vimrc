@@ -124,20 +124,22 @@ func! ShowDocumentation()
 	endif
 endfunc
 
-" 可以使用enter鍵來自動挑選第一個候選關鍵字來補齊
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
+" 可以使用TAB鍵來自動挑選第一個候選關鍵字來補齊
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
-" 可以使用TAB鍵從候選關鍵字中選擇想使用哪一個來補全
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
+" 使用 Ctrl + j 來觸發自動補齊，而且也可以在候選補齊的清單中選取下一個項目
+inoremap <silent><expr> <C-j>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" 可以使用 Ctrl + k 在候選補齊的清單中選取上一個項目
+inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " ===============================================================================
 " 設定vim-gitgutter
