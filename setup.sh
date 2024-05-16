@@ -5,11 +5,10 @@ if [ $? -eq 0 ]; then
 	sudo apt-get -y install git
 	sudo apt-get -y install exuberant-ctags cscope
 	sudo apt-get -y install build-essential cmake python3-dev
-	sudo apt-get -y install clangd doxygen graphviz libstdc++-12-dev
+	sudo apt-get -y install clangd doxygen graphviz libstdc++-10-dev
 	sudo apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 	sudo curl -sL install-node.now.sh | sudo bash
-	sudo apt-get -y install nodejs npm
-	sudo npm install -g yarn
+	sudo apt-get -y install nodejs npm yarn
 fi
 
 which pacman > /dev/null 2>&1
