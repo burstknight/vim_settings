@@ -26,11 +26,6 @@ else
 fi
 vim +PluginInstall +qall
 
-cd ~/.vim/bundle/coc.nvim
-git checkout release
-yarn install
-cd -
-
 cp -r ./templates/ ~/.vim
 git config --global commit.template ~/.vim/templates/git_commit_template
 
