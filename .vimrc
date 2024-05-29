@@ -55,6 +55,15 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " 可在當前編輯的檔案中使用關鍵字搜尋函數
 Plugin 'tacahiroy/ctrlp-funky'
 
+" 使用vim-lsp這個外掛來做程式語言的自動補齊
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+
+" 使用 vim-vsnip 在自動補齊時插入程式碼
+Plugin 'hrsh7th/vim-vsnip'
+Plugin 'hrsh7th/vim-vsnip-integ'
 
 call vundle#end()
 filetype plugin indent on
@@ -139,14 +148,55 @@ let g:ctrlp_custom_ignore = {
 			\}
 
 " ===============================================================================
-" 設定快捷鍵
+" 設定 vim-lsp
 " ===============================================================================
 
-function InitializeCocSettings()
-	:au BufNewFile coc-settings.json r ~/.vim/templates/coc-settings.template
+" Use clangd for c/c++
+if executable('clangd')
+	au User lsp_setup call lsp#register_server({
+			\ 'name': 'clangd',
+			\ 'cmd': {server_info->['clangd', '-background-index']},
+			\ 'whitelist': ['c', 'cpp', 'h', 'hpp']
+		\})
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+	setlocal omnifunc=lsp#complete
+	setlocal signcolumn=yes
+	if exists('+tagfunc') | setlocal tagfunc=lsp#func | endif
+	nmap <buffer> gd <plug>(lsp-definition)
+	nmap <buffer> gs <plug>(lsp-document-symbol-search)
+	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+	nmap <buffer> gr <plug>(lsp-referecne)
+	nmap <buffer> gi <plug>(lsp-implementaion)
+	nmap <buffer> gt <plug>(lsp-type-definition)
+	nmap <buffer> <leader>rn <plug>(lsp-rename)
+	nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+	nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+	nmap <buffer> K <plug>(lsp-hover)
+	nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+	nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 endfunction
 
-nnoremap <Leader>ci :call InitializeCocSettings()<CR>
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~ '\s'
+endfunction
+
+" 可使用TAB鍵在候選選單中挑選下一個選項
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ asyncomplete#force_refresh()
+" 可使用Shift + TAB 鍵在候選選單中選取上一個選項
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" 可使用 Enter 鍵使用候選選單中當前的選項來補齊
+inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" ===============================================================================
+" 設定快捷鍵
+" ===============================================================================
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
