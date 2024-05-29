@@ -194,6 +194,12 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " 可使用 Enter 鍵使用候選選單中當前的選項來補齊
 inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
+" 只有在成功安裝language server時，就註冊幾個快捷鍵
+augroup lsp_install
+	au!
+	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
 " ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
