@@ -22,9 +22,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " 這個外掛可以在vim中顯示所有函數的標籤，在開發C和C++程式時很有幫助
 Plugin 'majutsushi/tagbar'
 
-" 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
-Plugin 'neoclide/coc.nvim'
-
 " 這個外掛用來顯示Git的commit的歷史紀錄
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/gv.vim'
@@ -96,52 +93,6 @@ let NERDTreeShowHidden=1	" 在NERDTree顯示隱藏檔
 let NERDTreeMouseMode=3 " 允許使用滑鼠點擊nerdtree中的檔案和資料夾
 
 " ===============================================================================
-" 設定coc.nvim
-" ===============================================================================
-
-let g:coc_global_extensions = [
-			\'coc-clangd', 
-			\'coc-cmake', 
-			\'coc-pyright', 
-			\'coc-sh', 
-			\'coc-json',
-			\'coc-markdownlint']
-
-" 讓coc.nvim在顯示函式或類別的說明文件時，若內容較多，可以使用 Ctrl + f 和 Ctrl + b 來捲動
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-
-nnoremap <silent> <F9> :call ShowDocumentation()<CR>
-func! ShowDocumentation()
-	if CocAction('hasProvider', 'hover')
-		call CocActionAsync('doHover')
-	else
-		call feedkeys('K', 'in')
-	endif
-endfunc
-
-" 可以使用TAB鍵來自動挑選第一個候選關鍵字來補齊
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" 使用 Ctrl + j 來觸發自動補齊，而且也可以在候選補齊的清單中選取下一個項目
-inoremap <silent><expr> <C-j>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-" 可以使用 Ctrl + k 在候選補齊的清單中選取上一個項目
-inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" ===============================================================================
 " 設定vim-gitgutter
 " ===============================================================================
 set updatetime=100	" 設定vim-gitgutter每隔100ms檢查一次檔案的修改狀態
@@ -196,14 +147,6 @@ function InitializeCocSettings()
 endfunction
 
 nnoremap <Leader>ci :call InitializeCocSettings()<CR>
-
-" GoTo 快捷鍵
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gt <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-referecnes)
-
-nmap <Leader>rn <Plug>(coc-rename)
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
