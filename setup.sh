@@ -2,14 +2,13 @@ which apt-get > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	sudo apt-get update
 	sudo apt-get upgrade
-	sudo apt-get -y install git
-	sudo apt-get -y install exuberant-ctags cscope
-	sudo apt-get -y install build-essential cmake python3-dev
-	sudo apt-get -y install clangd doxygen graphviz libstdc++-12-dev
-	sudo apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+	sudo apt-get -y install git exuberant-ctags cscope build-essential cmake \
+		python3-dev python3-venv clangd doxygen graphviz libstdc++-12-dev \
+		curl dirmngr apt-transport-https lsb-release ca-certificates
 	sudo curl -sL install-node.now.sh | sudo bash
 	sudo apt-get -y install nodejs npm
 	sudo npm install -g yarn
+	pip3 install cmake-language-server
 fi
 
 which pacman > /dev/null 2>&1
