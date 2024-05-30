@@ -47,33 +47,40 @@ Key					| Function
 `<Leader>` + `ti` 	| Call the command `:TemplateAutoInit` to load a template file to write the current file.
 `<Leader>` + `mp` 	| Call the command `:MarkdownPreview` to open a web browser to preview markdown file.
 
-### Coc.nvim Setting
-If you hope the plugin `coc.nvim` to support your C/C++ library or other libraries, you can use the command `:CocConfig` in vim to edit the configuration file. And then the plugin `coc.nvim` will use the configuration file to show hint for any functions, variables etc.
-
-For example, a C library `myLib` is installed into the directory `/opt`. The content of the library `myLib` is:
-```
-myLib/
-|----- includes/
-|----- lib/
-```
-
-where the directory `includes` has all head files; the directory `lib` has all library files. You can edit the configuration file to make the plugin `coc.nvim` finding the include path for the library `myLib`.
-
-Here is a example for the library `myLib`:
-```json
-{
-	"clangd.fallbackFlags": [
-		"-I/opt/myLib/include"
-	]
-}
-```
-
 ### Commands:
 This table is shown useful commands:
 
 Commands			| Function
 --------------------|----------------------------------------------------------------
-`:CocConfig` 		| Open the configuration file to edit for the plugin `coc.nvim`.
 `:DoxLic` 			| Instert the doxygen-style comments for license at the location of the current edited code file.
 `:DocAuthor` 		| Insert the doxygen-style comments for the author infomation at the location of the current edited code file.
 `:DoxBlock` 		| Instert the doxygen-style comments for a group comments at the location of the current edited code file.
+
+## FAQ
+### `cmake-language-server` cannot work
+If `cmake-language-server` cannot work, you can add these commands into `~/.vimrc` to store the log files.
+```vim
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+```
+
+Maybe the log file will show the error:
+```
+Traceback (most recent call last):
+  File "/home/frank/.local/bin/cmake-language-server", line 5, in <module>
+    from cmake_language_server.server import main
+  File "/home/frank/.local/lib/python3.10/site-packages/cmake_language_server/server.py", line 8, in <module>
+    from lsprotocol.types import (
+  File "/home/frank/.local/lib/python3.10/site-packages/lsprotocol/types.py", line 14, in <module>
+    import attrs
+ModuleNotFoundError: No module named 'attrs'
+```
+
+You can referece [this issue](https://github.com/regen100/cmake-language-server/issues/74) to run the command to fix this error.
+```bash
+pip3 install --user --upgrade attrs
+```
+
