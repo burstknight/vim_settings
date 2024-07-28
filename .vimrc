@@ -58,6 +58,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " 可在當前編輯的檔案中使用關鍵字搜尋函數
 Plugin 'tacahiroy/ctrlp-funky'
 
+" 可以用來輔助針對一串文字做對齊
+Plugin 'junegunn/vim-easy-align'
 
 call vundle#end()
 filetype plugin indent on
@@ -186,6 +188,12 @@ let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[/\]\.(git|hg|svn)$',
 			\ 'file': '\v\.(exe|so|dll|o)$',
 			\}
+
+" ===============================================================================
+" 設定外掛 vim-easy-align
+" ===============================================================================
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " ===============================================================================
 " 設定快捷鍵
