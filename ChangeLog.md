@@ -4,6 +4,7 @@
 ## [Unrelease]
 ### Added
 - Add the plugin `vim-easy-align` to align text.
+- Add the plugin `vim-which-key` to show the shortcut.
 
 ### Changed
 - Update the git commit template to add the tag `Reference`.
