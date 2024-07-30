@@ -61,6 +61,9 @@ Plugin 'tacahiroy/ctrlp-funky'
 " 可以用來輔助針對一串文字做對齊
 Plugin 'junegunn/vim-easy-align'
 
+" 可以顯示快捷鍵
+Plugin 'liuchengxu/vim-which-key'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -196,6 +199,16 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " ===============================================================================
+" 設定外掛 vim-which-key
+" ===============================================================================
+set timeoutlen=500 " 設定timeout為 500ms
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ","
+let g:which_key_map = {}
+nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+" ===============================================================================
 " 設定快捷鍵
 " ===============================================================================
 
@@ -206,10 +219,15 @@ endfunction
 nnoremap <Leader>ci :call InitializeCocSettings()<CR>
 
 " GoTo 快捷鍵
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gt <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
+let g:which_key_map.g = {'name': 'coc lsp'}
+nnoremap <silent> <Leader>gd <Plug>(coc-definition)
+let g:which_key_map.g.d = 'Go to definition'
+nnoremap <silent> <Leader>gt <Plug>(coc-type-definition)
+let g:which_key_map.g.t = 'Go to type definition'
+nnoremap <silent> <Leader>gi <Plug>(coc-implementation)
+let g:which_key_map.g.i = 'Go to implementation'
 nnoremap <silent> gr <Plug>(coc-referecnes)
+let g:which_key_map.g.r = 'Go to referecnes'
 
 nmap <Leader>rn <Plug>(coc-rename)
 
