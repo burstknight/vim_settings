@@ -3,12 +3,16 @@
 ---------------------------
 ## [Unrelease]
 ### Added
+- Add the plugin `vim-easy-align` to align text.
 
 ### Changed
+- Update the git commit template to add the tag `Reference`.
 
 ### Fixed
+- `clangd` couldn't c++ standard header files on ubuntu because we need install `libc++-12-dev`.
 
 ### Removed
+- Remove the setting file `.tmux.conf` because this setting file should be maintain by a independent project.
 
 ---------------------------
 ## [1.4.0] - 2023/07/24
