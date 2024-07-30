@@ -3,7 +3,7 @@ This project can setup vim.
 
 ## Requirements
 The plugin `coc.nvim` need the requirements:
-- `vim`: `>= 8.2` (run `:version` in vim or `vim --version` to check the version)
+- `vim`: `>= 9.0.0438` (run `:version` in vim or `vim --version` to check the version)
 - `node`: `>= 12.12`
 
 If the version of your vim is older, you can use bellow commands to upgrade vim:
