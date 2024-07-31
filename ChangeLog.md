@@ -3,6 +3,19 @@
 ---------------------------
 ## [Unrelease]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Deprecated
+- The plugin `coc.nvim` should be removed in future because it has the error: neoclide/coc.nvim#4713
+- The plugin `vim-templates` should be removed in future because I want to use the plugin `vm-vsnip` for auto completion.
+- I want to replace `vundle` with `vim-plug` to manage plugins in future because `vim-plug` is fast and can set the branch or version for each plugin.
+
+---------------------------
+## [1.5.0] - 2024/07/31
+### Added
 - Add the plugin `vim-easy-align` to align text.
 - Add the plugin `vim-which-key` to show the shortcut.
 
@@ -14,11 +27,6 @@
 
 ### Removed
 - Remove the setting file `.tmux.conf` because this setting file should be maintain by a independent project.
-
-### Deprecated
-- The plugin `coc.nvim` should be removed in future because it has the error: neoclide/coc.nvim#4713
-- The plugin `vim-templates` should be removed in future because I want to use the plugin `vm-vsnip` for auto completion.
-- I want to replace `vundle` with `vim-plug` to manage plugins in future because `vim-plug` is fast and can set the branch or version for each plugin.
 
 ---------------------------
 ## [1.4.0] - 2023/07/24
