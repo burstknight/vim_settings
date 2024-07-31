@@ -20,7 +20,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 
 " 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'do': 'npm ci'}
 
 " 這個外掛用來顯示Git的commit的歷史紀錄
 Plug 'tpope/vim-fugitive'
@@ -32,7 +32,7 @@ Plug 'airblade/vim-gitgutter'
 " 這個外掛提供了幾個樣板，只要使用這個外掛，就可以把這些樣板載進來
 Plug 'tibabit/vim-templates'
 
-Plug 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && npx --yes yarn install'}
 
 " 這個外掛提供非同步模式下使用外部指令
 Plug 'skywind3000/asyncrun.vim'

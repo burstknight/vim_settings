@@ -29,15 +29,6 @@ fi
 
 vim +PlugInstall +qall
 
-cd ~/.vim/plugged/coc.nvim
-yarn install
-cd -
-
 cp -r ./templates/ ~/.vim
 git config --global commit.template ~/.vim/templates/git_commit_template
-
-cd ~/.vim/bundle/markdown-preview.nvim/app
-sh ./install.sh
-yarn
-cd -
 
