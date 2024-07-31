@@ -1,71 +1,67 @@
 " ===============================================================================
 " 載入vim外掛
 " ===============================================================================
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " 這兩個外掛用來修改vim狀態列的樣式
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " 這個外掛是一個檔案總管
-Plugin 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 " 這個外掛可以顯示對齊參考線
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " 這個外掛可以在 nerdtree中顯示每個檔案的git狀態
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 這個外掛可以在vim中顯示所有函數的標籤，在開發C和C++程式時很有幫助
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " 這個外掛可以用在程式碼的自動補齊，以及對程式碼分析語意並且提供修改建議
-Plugin 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim'
 
 " 這個外掛用來顯示Git的commit的歷史紀錄
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/gv.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " 這個外掛可以搭配Git即時顯示檔案修改狀態
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " 這個外掛提供了幾個樣板，只要使用這個外掛，就可以把這些樣板載進來
-Plugin 'tibabit/vim-templates'
+Plug 'tibabit/vim-templates'
 
-Plugin 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim'
 
 " 這個外掛提供非同步模式下使用外部指令
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " 針對使用多個括號時，會使用不同的顏色來呈現多層次
-Plugin 'frazrepo/vim-rainbow'
+Plug 'frazrepo/vim-rainbow'
 
 " 可用來處理括號等符號的自動補齊
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " vim 顏色主題
-Plugin 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 
 " doxygen註解補齊工具
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " 只需給予關鍵字就能夠尋找特定的檔案
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " 可在當前編輯的檔案中使用關鍵字搜尋函數
-Plugin 'tacahiroy/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky'
 
 " 可以用來輔助針對一串文字做對齊
-Plugin 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 
 " 可以顯示快捷鍵
-Plugin 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " ===============================================================================
 " vim 基本設定
