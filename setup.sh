@@ -19,15 +19,17 @@ fi
 
 cp .vimrc ~/
 
-if [ -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
-    echo "\e[32mThe plugin manager Vundle exists, so we don't download it.\e[0m"
+if [ -f '~/.vim/autoload/plug.vim' ]; then
+	echo "We have the plugin manager 'vim-plug'!"
 else
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	echo "Well, we need download the plugin manager: vim-plug"
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-vim +PluginInstall +qall
+
+vim +PlugInstall +qall
 
 cd ~/.vim/bundle/coc.nvim
-git checkout release
 yarn install
 cd -
 
