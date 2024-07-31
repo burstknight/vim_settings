@@ -29,7 +29,7 @@ fi
 
 vim +PlugInstall +qall
 
-cd ~/.vim/bundle/coc.nvim
+cd ~/.vim/plugged/coc.nvim
 yarn install
 cd -
 
