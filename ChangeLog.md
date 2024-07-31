@@ -15,6 +15,8 @@
 ### Removed
 - Remove the setting file `.tmux.conf` because this setting file should be maintain by a independent project.
 
+### Deprecated
+
 ---------------------------
 ## [1.4.0] - 2023/07/24
 ### Added
