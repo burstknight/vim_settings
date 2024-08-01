@@ -7,9 +7,9 @@
 ### Changed
 
 ### Fixed
+- Remove the plugin `coc.nvim` because I want to use [yegappan/lsp](https://github.com/yegappan/lsp.git) to handle lsp.
 
 ### Deprecated
-- The plugin `coc.nvim` should be removed in future because it has the error: neoclide/coc.nvim#4713
 - The plugin `vim-templates` should be removed in future because I want to use the plugin `vm-vsnip` for auto completion.
 
 ---------------------------
