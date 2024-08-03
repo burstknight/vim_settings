@@ -1,0 +1,8 @@
+# Set text files to handle line ending
+* text=auto
+
+*.[Mm][Dd] text eof=lf
+*.sh text eof=lf
+*.template eof=lf
+.vimrc eof=lf
+
